@@ -1,0 +1,271 @@
+[file name]: orientation-middle.html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التوجيه بعد الإعدادي - حاسبة المعدل</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="orientation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <a href="index.html">حاسبة المعدل</a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> الرئيسية
+                </a>
+                <a href="calcul.html" class="nav-link">
+                    <i class="fas fa-calculator"></i> حساب المعدل
+                </a>
+                <a href="orientation-middle.html" class="nav-link active">
+                    <i class="fas fa-compass"></i> توجيه إعدادي
+                </a>
+                <a href="orientation-bac.html" class="nav-link">
+                    <i class="fas fa-university"></i> توجيه باك
+                </a>
+                <div class="nav-user" id="navUser" style="display: flex;">
+                    <span id="userName">مستخدم</span>
+                    <button id="logoutBtn" class="btn-logout">🚪 تسجيل الخروج</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="orientation-page">
+        <div class="container">
+            <!-- قسم الترحيب -->
+            <div class="orientation-hero">
+                <h1><i class="fas fa-compass"></i> التوجيه بعد الإعدادي</h1>
+                <p class="subtitle">اختر مسارك الدراسي المناسب بناءً على قدراتك واهتماماتك</p>
+            </div>
+
+            <!-- قسم الفروع المتاحة -->
+            <section class="branches-section">
+                <h2><i class="fas fa-road"></i> الفروع المتاحة بعد الإعدادي</h2>
+                <div class="branches-grid">
+                    <div class="branch-card scientific">
+                        <div class="branch-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>الشعبة العلمية</h3>
+                        <div class="branch-details">
+                            <p><strong>المتطلبات:</strong> معدل ≥ 12/20 في المواد العلمية</p>
+                            <p><strong>المواد الأساسية:</strong> الرياضيات، الفيزياء، علوم الحياة</p>
+                            <p><strong>المستقبل المهني:</strong> طب، هندسة، صيدلة، علوم</p>
+                        </div>
+                        <button class="btn-explore" onclick="showBranchDetails('scientific')">
+                            استكشاف المزيد
+                        </button>
+                    </div>
+
+                    <div class="branch-card literary">
+                        <div class="branch-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>الشعبة الأدبية</h3>
+                        <div class="branch-details">
+                            <p><strong>المتطلبات:</strong> تميز في اللغات والعلوم الإنسانية</p>
+                            <p><strong>المواد الأساسية:</strong> اللغة العربية، الفلسفة، التاريخ</p>
+                            <p><strong>المستقبل المهني:</strong> قانون، إعلام، تدريس، أدب</p>
+                        </div>
+                        <button class="btn-explore" onclick="showBranchDetails('literary')">
+                            استكشاف المزيد
+                        </button>
+                    </div>
+
+                    <div class="branch-card technical">
+                        <div class="branch-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>التقني والمهني</h3>
+                        <div class="branch-details">
+                            <p><strong>المتطلبات:</strong> مهارات عملية وتقنية</p>
+                            <p><strong>التخصصات:</strong> كهرباء، ميكانيك، إعلاميات، فنون</p>
+                            <p><strong>المستقبل المهني:</strong> تقني مختص، حرفي، فني</p>
+                        </div>
+                        <button class="btn-explore" onclick="showBranchDetails('technical')">
+                            استكشاف المزيد
+                        </button>
+                    </div>
+
+                    <div class="branch-card original">
+                        <div class="branch-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>تعليم أصلي</h3>
+                        <div class="branch-details">
+                            <p><strong>المتطلبات:</strong> اهتمام بالعلوم الشرعية واللغوية</p>
+                            <p><strong>المواد الأساسية:</strong> الفقه، التفسير، اللغة العربية</p>
+                            <p><strong>المستقبل المهني:</strong> قضاء، إفتاء، تدريس شرعي</p>
+                        </div>
+                        <button class="btn-explore" onclick="showBranchDetails('original')">
+                            استكشاف المزيد
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- اختبار التوجيه -->
+            <section class="orientation-test">
+                <h2><i class="fas fa-clipboard-check"></i> اختبار التوجيه المناسب</h2>
+                <div class="test-container">
+                    <div class="test-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="testProgress"></div>
+                        </div>
+                        <div class="progress-text" id="progressText">السؤال 1/10</div>
+                    </div>
+
+                    <div class="test-question" id="questionContainer">
+                        <!-- الأسئلة يتم تحميلها ديناميكياً -->
+                    </div>
+
+                    <div class="test-options" id="optionsContainer">
+                        <!-- الخيارات يتم تحميلها ديناميكياً -->
+                    </div>
+
+                    <div class="test-navigation">
+                        <button class="btn-secondary" id="prevBtn" onclick="prevQuestion()" disabled>
+                            <i class="fas fa-arrow-right"></i> السابق
+                        </button>
+                        <button class="btn-primary" id="nextBtn" onclick="nextQuestion()">
+                            التالي <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <button class="btn-success" id="resultBtn" onclick="showTestResult()" style="display: none;">
+                            <i class="fas fa-chart-bar"></i> عرض النتيجة
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- نتيجة الاختبار -->
+            <section class="test-result-section" id="resultSection" style="display: none;">
+                <h2><i class="fas fa-award"></i> نتيجة اختبار التوجيه</h2>
+                <div class="result-card">
+                    <div class="result-header">
+                        <h3>التخصص المناسب لك هو: <span id="recommendedBranch"></span></h3>
+                        <div class="match-percentage">
+                            <div class="percentage-circle">
+                                <span id="matchPercentage">0%</span>
+                            </div>
+                            <p>نسبة التوافق</p>
+                        </div>
+                    </div>
+
+                    <div class="result-details">
+                        <div class="strengths">
+                            <h4><i class="fas fa-check-circle"></i> نقاط قوتك</h4>
+                            <ul id="strengthsList">
+                                <!-- يتم تعبئته ديناميكياً -->
+                            </ul>
+                        </div>
+
+                        <div class="recommendations">
+                            <h4><i class="fas fa-lightbulb"></i> توصياتنا لك</h4>
+                            <div class="recommendations-grid" id="recommendationsGrid">
+                                <!-- يتم تعبئته ديناميكياً -->
+                            </div>
+                        </div>
+
+                        <div class="career-paths">
+                            <h4><i class="fas fa-briefcase"></i> المسارات المهنية</h4>
+                            <div class="careers-list" id="careersList">
+                                <!-- يتم تعبئته ديناميكياً -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="result-actions">
+                        <button class="btn-primary" onclick="saveOrientationResult()">
+                            <i class="fas fa-save"></i> حفظ النتيجة
+                        </button>
+                        <button class="btn-secondary" onclick="retakeTest()">
+                            <i class="fas fa-redo"></i> إعادة الاختبار
+                        </button>
+                        <button class="btn-secondary" onclick="printResult()">
+                            <i class="fas fa-print"></i> طباعة النتيجة
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- قسم المقارنة بين الفروع -->
+            <section class="comparison-section">
+                <h2><i class="fas fa-balance-scale"></i> مقارنة بين الفروع</h2>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>المعيار</th>
+                                <th>علمي</th>
+                                <th>أدبي</th>
+                                <th>تقني</th>
+                                <th>أصلي</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>متوسط سنوات الدراسة</td>
+                                <td>3 سنوات</td>
+                                <td>3 سنوات</td>
+                                <td>2-3 سنوات</td>
+                                <td>3-4 سنوات</td>
+                            </tr>
+                            <tr>
+                                <td>نسبة التوظيف</td>
+                                <td>85%</td>
+                                <td>78%</td>
+                                <td>92%</td>
+                                <td>80%</td>
+                            </tr>
+                            <tr>
+                                <td>المجالات المتاحة</td>
+                                <td>واسعة</td>
+                                <td>متوسطة</td>
+                                <td>متخصصة</td>
+                                <td>متخصصة</td>
+                            </tr>
+                            <tr>
+                                <td>متوسط الدخل</td>
+                                <td>مرتفع</td>
+                                <td>متوسط</td>
+                                <td>جيد</td>
+                                <td>متوسط إلى جيد</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>حاسبة المعدل الدراسي</h3>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">الرئيسية</a>
+                    <a href="calcul.html">حساب المعدل</a>
+                    <a href="orientation-middle.html">توجيه إعدادي</a>
+                    <a href="orientation-bac.html">توجيه باك</a>
+                </div>
+                <p class="copyright">© 2025 جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="orientation.js"></script>
+</body>
+</html>

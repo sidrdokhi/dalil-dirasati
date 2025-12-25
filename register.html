@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إنشاء حساب - حاسبة المعدل</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="auth.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <i class="fas fa-graduation-cap"></i>
+          <a href="index.html">حاسبة المعدل</a>
+        </div>
+        <div class="nav-menu">
+          <a href="index.html" class="nav-link">
+            <i class="fas fa-home"></i> الرئيسية
+          </a>
+          <a href="login.html" class="nav-link">
+            <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+          </a>
+          <a href="register.html" class="nav-link active">
+            <i class="fas fa-user-plus"></i> إنشاء حساب
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="auth-page">
+      <div class="container">
+        <div class="auth-container">
+          <div class="auth-header">
+            <h1><i class="fas fa-user-plus"></i> إنشاء حساب جديد</h1>
+            <p>سجل حساباً جديداً للوصول إلى جميع المميزات</p>
+          </div>
+
+          <div class="auth-card">
+            <form id="registerForm" class="auth-form">
+              <div class="form-group">
+                <label for="fullName">
+                  <i class="fas fa-user"></i> الاسم الكامل
+                </label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  required
+                  placeholder="ادخل اسمك الكامل"
+                />
+                <div class="error-message" id="nameError"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">
+                  <i class="fas fa-envelope"></i> البريد الإلكتروني
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="ادخل بريدك الإلكتروني"
+                />
+                <div class="error-message" id="emailError"></div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="password">
+                    <i class="fas fa-lock"></i> كلمة المرور
+                  </label>
+                  <div class="password-input">
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      required
+                      placeholder="كلمة المرور (8 أحرف على الأقل)"
+                    />
+                    <button
+                      type="button"
+                      class="show-password"
+                      id="showPassword"
+                    >
+                      <i class="fas fa-eye"></i>
+                    </button>
+                  </div>
+                  <div class="error-message" id="passwordError"></div>
+                </div>
+
+                <div class="form-group">
+                  <label for="confirmPassword">
+                    <i class="fas fa-lock"></i> تأكيد كلمة المرور
+                  </label>
+                  <div class="password-input">
+                    <input
+                      type="password"
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      required
+                      placeholder="أعد إدخال كلمة المرور"
+                    />
+                    <button
+                      type="button"
+                      class="show-password"
+                      id="showConfirmPassword"
+                    >
+                      <i class="fas fa-eye"></i>
+                    </button>
+                  </div>
+                  <div class="error-message" id="confirmPasswordError"></div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="level">
+                  <i class="fas fa-graduation-cap"></i> المستوى الدراسي
+                </label>
+                <select id="level" name="level" required>
+                  <option value="">اختر مستواك الدراسي</option>
+                  <option value="primary">ابتدائي</option>
+                  <option value="middle">إعدادي</option>
+                  <option value="secondary">ثانوي</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="checkbox">
+                  <input type="checkbox" id="terms" name="terms" required />
+                  <span>أوافق على الشروط والأحكام</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn-primary btn-auth">
+                <i class="fas fa-user-plus"></i> إنشاء حساب
+              </button>
+
+              <div class="auth-links">
+                <p>لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a></p>
+                <p>
+                  <a href="index.html"
+                    ><i class="fas fa-arrow-right"></i> العودة للرئيسية</a
+                  >
+                </p>
+              </div>
+            </form>
+
+            <div class="auth-features">
+              <h3><i class="fas fa-gift"></i> مميزات العضوية</h3>
+              <ul>
+                <li><i class="fas fa-check"></i> حساب دائم لحفظ النتائج</li>
+                <li><i class="fas fa-check"></i> تتبع تقدمك الدراسي</li>
+                <li><i class="fas fa-check"></i> نصائح دراسية مخصصة</li>
+                <li><i class="fas fa-check"></i> دعم فني متواصل</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <p>© 2024 حاسبة المعدل الدراسي</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="auth.js"></script>
+  </body>
+</html>

@@ -1,0 +1,245 @@
+[file name]: orientation-bac.html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التوجيه بعد الباكالوريا - حاسبة المعدل</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="orientation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <a href="index.html">حاسبة المعدل</a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> الرئيسية
+                </a>
+                <a href="calcul.html" class="nav-link">
+                    <i class="fas fa-calculator"></i> حساب المعدل
+                </a>
+                <a href="orientation-middle.html" class="nav-link">
+                    <i class="fas fa-compass"></i> توجيه إعدادي
+                </a>
+                <a href="orientation-bac.html" class="nav-link active">
+                    <i class="fas fa-university"></i> توجيه باك
+                </a>
+                <div class="nav-user" id="navUser" style="display: flex;">
+                    <span id="userName">مستخدم</span>
+                    <button id="logoutBtn" class="btn-logout">🚪 تسجيل الخروج</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="orientation-page">
+        <div class="container">
+            <!-- قسم الترحيب -->
+            <div class="orientation-hero">
+                <h1><i class="fas fa-university"></i> التوجيه الجامعي بعد الباكالوريا</h1>
+                <p class="subtitle">اختر تخصصك الجامعي بناءً على شهادة الباكالوريا واهتماماتك الشخصية</p>
+            </div>
+
+            <!-- اختيار شعبة الباكالوريا -->
+            <section class="bac-section">
+                <h2><i class="fas fa-graduation-cap"></i> اختر شعبة الباكالوريا</h2>
+                <div class="bac-options">
+                    <div class="bac-card" onclick="selectBacStream('scientific')">
+                        <div class="bac-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>علوم تجريبية</h3>
+                        <p>للحاصلين على باك علوم تجريبية</p>
+                    </div>
+
+                    <div class="bac-card" onclick="selectBacStream('math')">
+                        <div class="bac-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3>رياضيات</h3>
+                        <p>للحاصلين على باك علوم رياضية</p>
+                    </div>
+
+                    <div class="bac-card" onclick="selectBacStream('tech')">
+                        <div class="bac-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>تقني</h3>
+                        <p>للحاصلين على باك تقني</p>
+                    </div>
+
+                    <div class="bac-card" onclick="selectBacStream('literary')">
+                        <div class="bac-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>أداب</h3>
+                        <p>للحاصلين على باك آداب وعلوم إنسانية</p>
+                    </div>
+
+                    <div class="bac-card" onclick="selectBacStream('sharia')">
+                        <div class="bac-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>شرعي</h3>
+                        <p>للحاصلين على باك علوم شرعية</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- التخصصات الجامعية -->
+            <section class="majors-section" id="majorsSection" style="display: none;">
+                <h2><i class="fas fa-book-open"></i> التخصصات المتاحة</h2>
+                
+                <!-- تصفية التخصصات -->
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="interestFilter">الاهتمامات:</label>
+                        <select id="interestFilter" onchange="filterMajors()">
+                            <option value="all">جميع الاهتمامات</option>
+                            <option value="medical">طبية وصحية</option>
+                            <option value="engineering">هندسة وتقنية</option>
+                            <option value="business">إدارة وأعمال</option>
+                            <option value="education">تربية وتعليم</option>
+                            <option value="arts">فنون وآداب</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="durationFilter">مدة الدراسة:</label>
+                        <select id="durationFilter" onchange="filterMajors()">
+                            <option value="all">جميع المدد</option>
+                            <option value="short">2-3 سنوات</option>
+                            <option value="medium">4-5 سنوات</option>
+                            <option value="long">6+ سنوات</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="demandFilter">طلبية سوق العمل:</label>
+                        <select id="demandFilter" onchange="filterMajors()">
+                            <option value="all">جميع المستويات</option>
+                            <option value="high">مرتفعة</option>
+                            <option value="medium">متوسطة</option>
+                            <option value="low">منخفضة</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- شبكة التخصصات -->
+                <div class="majors-grid" id="majorsGrid">
+                    <!-- يتم تعبئته ديناميكياً -->
+                </div>
+            </section>
+
+            <!-- اختبار التوجيه الجامعي -->
+            <section class="university-test">
+                <h2><i class="fas fa-clipboard-list"></i> اختبار التوجيه الجامعي</h2>
+                <div class="test-intro">
+                    <p>أجب على الأسئلة التالية لمساعدتك في اختيار التخصص الجامعي المناسب</p>
+                    <button class="btn-primary" onclick="startUniversityTest()">
+                        <i class="fas fa-play"></i> بدء الاختبار
+                    </button>
+                </div>
+
+                <div class="university-test-container" id="universityTestContainer" style="display: none;">
+                    <!-- نفس هيكل اختبار الإعدادي مع أسئلة مختلفة -->
+                </div>
+            </section>
+
+            <!-- الجامعات والمعاهد -->
+            <section class="institutions-section">
+                <h2><i class="fas fa-landmark"></i> الجامعات والمعاهد</h2>
+                <div class="institutions-tabs">
+                    <button class="tab-btn active" onclick="showInstitutions('public')">
+                        <i class="fas fa-school"></i> جامعات حكومية
+                    </button>
+                    <button class="tab-btn" onclick="showInstitutions('private')">
+                        <i class="fas fa-building"></i> جامعات خاصة
+                    </button>
+                    <button class="tab-btn" onclick="showInstitutions('institutes')">
+                        <i class="fas fa-certificate"></i> معاهد متخصصة
+                    </button>
+                </div>
+
+                <div class="institutions-list" id="institutionsList">
+                    <!-- يتم تعبئته ديناميكياً -->
+                </div>
+            </section>
+
+            <!-- الخطوات العملية -->
+            <section class="steps-section">
+                <h2><i class="fas fa-footsteps"></i> خطوات التقديم للجامعة</h2>
+                <div class="steps-timeline">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>تحديد التخصص</h3>
+                        <p>اختر التخصص المناسب لقدراتك واهتماماتك</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>البحث عن الجامعات</h3>
+                        <p>ابحث عن الجامعات التي تقدم التخصص المطلوب</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>معرفة الشروط</h3>
+                        <p>اطلع على شروط القبول والوثائق المطلوبة</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>التسجيل والتقديم</h3>
+                        <p>سجل في المنصة الإلكترونية وقدم الطلبات</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <h3>المتابعة</h3>
+                        <p>تابع نتائج القبول والإجراءات اللاحقة</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>حاسبة المعدل الدراسي</h3>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">الرئيسية</a>
+                    <a href="calcul.html">حساب المعدل</a>
+                    <a href="orientation-middle.html">توجيه إعدادي</a>
+                    <a href="orientation-bac.html">توجيه باك</a>
+                    <a href="#" onclick="showContactModal()">تواصل معنا</a>
+                </div>
+                <p class="copyright">© 2025 جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- نافذة تفاصيل التخصص -->
+    <div id="majorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="majorTitle"></h2>
+                <button class="close-modal" onclick="closeMajorModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="majorDetails">
+                <!-- يتم تعبئته ديناميكياً -->
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="orientation.js"></script>
+</body>
+</html>
