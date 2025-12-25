@@ -329,13 +329,49 @@
         gap: 10px;
       }
 
-      .subject-coefficient {
-        background: #e8f4ff;
-        color: var(--primary);
-        padding: 8px 20px;
-        border-radius: 20px;
+      .coefficient-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #f8fafc;
+        padding: 8px 15px;
+        border-radius: 25px;
+        border: 1px solid #e5e7eb;
+      }
+
+      .coefficient-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: white;
+        border: none;
+        font-size: 1.2rem;
         font-weight: bold;
-        font-size: 1.1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+      }
+
+      .coefficient-btn:hover {
+        background: var(--secondary);
+        transform: scale(1.1);
+      }
+
+      .coefficient-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .coefficient-value {
+        font-weight: bold;
+        color: var(--primary);
+        font-size: 1.2rem;
+        min-width: 40px;
+        text-align: center;
       }
 
       .grades-grid {
@@ -426,6 +462,43 @@
         border: 2px solid #e5e7eb;
       }
 
+      /* التعديلات للأزرار الإضافية */
+      .action-buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        justify-content: center;
+      }
+
+      .btn-small {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+
+      /* تحسين زر التوجيه الدراسي */
+      .btn-orientation-main {
+        background: linear-gradient(45deg, #10b981, #059669);
+        color: white;
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+      }
+
+      .btn-orientation-main:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+        background: linear-gradient(45deg, #059669, #047857);
+      }
+
       @media (max-width: 768px) {
         .grades-grid {
           grid-template-columns: 1fr;
@@ -441,6 +514,10 @@
           flex-direction: column;
           gap: 10px;
           text-align: center;
+        }
+        
+        .coefficient-controls {
+          justify-content: center;
         }
       }
 
@@ -646,6 +723,114 @@
         color: var(--primary);
       }
 
+      /* زر التوجيه الدراسي */
+      .orientation-button-section {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 30px;
+        border-top: 2px solid #e5e7eb;
+      }
+
+      .btn-orientation {
+        background: linear-gradient(45deg, #10b981, #059669);
+        color: white;
+        padding: 18px 40px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+      }
+
+      .btn-orientation:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+        background: linear-gradient(45deg, #059669, #047857);
+      }
+
+      /* نافذة اختيار مستوى التوجيه */
+      .orientation-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .orientation-modal.active {
+        display: flex;
+        animation: fadeIn 0.3s;
+      }
+
+      .modal-content {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        max-width: 500px;
+        width: 90%;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        text-align: center;
+      }
+
+      .modal-header {
+        margin-bottom: 30px;
+      }
+
+      .modal-header h3 {
+        color: var(--dark);
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+      }
+
+      .modal-options {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+
+      .modal-option {
+        padding: 20px;
+        background: var(--light);
+        border: 2px solid #e5e7eb;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-align: center;
+      }
+
+      .modal-option:hover {
+        transform: translateY(-5px);
+        border-color: var(--primary);
+        box-shadow: 0 10px 20px rgba(67, 97, 238, 0.2);
+      }
+
+      .modal-option i {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: var(--primary);
+      }
+
+      .modal-option h4 {
+        margin-bottom: 5px;
+        color: var(--dark);
+      }
+
+      .modal-option p {
+        color: #6b7280;
+        font-size: 0.9rem;
+      }
+
       footer {
         text-align: center;
         padding: 30px;
@@ -668,7 +853,7 @@
         <a href="calcul.html" class="nav-link" onclick="showCalculator()">
           🧮 حساب المعدل
         </a>
-        <a href="#" class="nav-link" onclick="showOrientation()">
+        <a href="#" class="nav-link" onclick="showOrientationModal()">
           🧭 التوجيه الدراسي
         </a>
         <a href="#" class="nav-link" onclick="showHistory()">
@@ -681,6 +866,36 @@
         </div>
       </div>
     </nav>
+
+    <!-- نافذة اختيار مستوى التوجيه -->
+    <div id="orientationModal" class="orientation-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>🧭 اختبار التوجيه الدراسي</h3>
+          <p>اختر المستوى الدراسي للحصول على توجيه مخصص</p>
+        </div>
+        
+        <div class="modal-options">
+          <div class="modal-option" onclick="startOrientationTest('middle')">
+            <i>👨‍🎓</i>
+            <h4>التوجيه بعد الإعدادي</h4>
+            <p>اختر الفرع المناسب للمرحلة الثانوية</p>
+          </div>
+          
+          <div class="modal-option" onclick="startOrientationTest('bac')">
+            <i>🎓</i>
+            <h4>التوجيه الجامعي</h4>
+            <p>اختر التخصص المناسب بعد الباكالوريا</p>
+          </div>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="btn btn-secondary" onclick="hideOrientationModal()">
+            إلغاء
+          </button>
+        </div>
+      </div>
+    </div>
 
     <div class="container">
       <!-- === الصفحة الرئيسية === -->
@@ -700,11 +915,11 @@
             </button>
           </div>
 
-          <div class="action-card" onclick="showOrientation()">
+          <div class="action-card" onclick="showOrientationModal()">
             <div class="action-icon">🧭</div>
-            <h3>التوجيه الدراسي</h3>
+            <h3>اختبار التوجيه</h3>
             <p>اكتشف المسار الدراسي المناسب لقدراتك واهتماماتك</p>
-            <button class="btn btn-primary" style="margin-top: 15px">
+            <button class="btn-orientation-main" style="margin-top: 15px">
               اختبار التوجيه
             </button>
           </div>
@@ -725,6 +940,28 @@
             <button class="btn btn-secondary" style="margin-top: 15px">
               شاهد الشرح
             </button>
+          </div>
+        </div>
+
+        <!-- قسم الإحصائيات السريعة -->
+        <div style="text-align: center; margin-top: 40px; padding: 30px; background: #f8f9fa; border-radius: 15px;">
+          <h3 style="margin-bottom: 20px; color: var(--dark)">⚡ مميزات جديدة</h3>
+          <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+            <div style="text-align: center; max-width: 300px;">
+              <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;">⚙️</div>
+              <h4 style="color: var(--dark); margin-bottom: 10px;">تعديل المعاملات</h4>
+              <p style="color: #666;">يمكنك الآن تعديل معامل كل مادة حسب أهميتها</p>
+            </div>
+            <div style="text-align: center; max-width: 300px;">
+              <div style="font-size: 2.5rem; color: #10b981; margin-bottom: 10px;">🧭</div>
+              <h4 style="color: var(--dark); margin-bottom: 10px;">اختبار توجيه سريع</h4>
+              <p style="color: #666;">اختبار توجيه دراسي مباشر من الصفحة الرئيسية</p>
+            </div>
+            <div style="text-align: center; max-width: 300px;">
+              <div style="font-size: 2.5rem; color: #8b5cf6; margin-bottom: 10px;">📊</div>
+              <h4 style="color: var(--dark); margin-bottom: 10px;">توجيه ذكي</h4>
+              <p style="color: #666;">توجيه دراسي مخصص بناءً على نتائج حسابك</p>
+            </div>
           </div>
         </div>
       </div>
@@ -759,9 +996,15 @@
         <div class="subjects-container">
           <div class="subjects-header">
             <h3 style="margin: 0">📝 إدخال الدرجات (4 درجات لكل مادة)</h3>
-            <div style="display: flex; gap: 10px">
-              <button class="btn btn-secondary" onclick="autoFillGrades()">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <button class="btn btn-secondary btn-small" onclick="autoFillGrades()">
                 🎲 تعبئة عشوائية
+              </button>
+              <button class="btn btn-secondary btn-small" onclick="resetAllCoefficients()">
+                🔄 إعادة المعاملات
+              </button>
+              <button class="btn btn-secondary btn-small" onclick="addCustomSubject()">
+                ➕ إضافة مادة
               </button>
             </div>
           </div>
@@ -790,7 +1033,7 @@
             <!-- المواد تضاف هنا -->
           </div>
 
-          <div style="text-align: center; margin-top: 30px">
+          <div class="action-buttons">
             <button
               class="btn btn-primary"
               onclick="calculateAverage()"
@@ -823,9 +1066,20 @@
               <h3 style="margin-bottom: 20px; text-align: center">📊 تفاصيل المواد</h3>
               <!-- تفاصيل المواد تضاف هنا -->
             </div>
+
+            <!-- قسم زر التوجيه الدراسي -->
+            <div class="orientation-button-section" id="orientationButtonSection">
+              <h3 style="margin-bottom: 20px; color: #374151">🎓 التوجيه الدراسي</h3>
+              <p style="margin-bottom: 20px; color: #6b7280">
+                بعد حساب معدلك، يمكنك الحصول على توجيه دراسي مخصص بناءً على نتائجك
+              </p>
+              <button class="btn-orientation" onclick="goToOrientation()">
+                🧭 انتقل إلى التوجيه الدراسي
+              </button>
+            </div>
           </div>
 
-          <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+          <div class="action-buttons">
             <button class="btn btn-secondary" onclick="saveCalculation()">
               💾 حفظ النتيجة
             </button>
@@ -885,6 +1139,9 @@
       let currentLevel = "middle";
       let subjects = [];
       let calculations = [];
+      let currentAverage = 0;
+      let calculationResults = {};
+      let customSubjectCount = 0;
 
       // === تهيئة الصفحة ===
       document.addEventListener("DOMContentLoaded", function () {
@@ -929,6 +1186,7 @@
         document.getElementById("mainPage").style.display = "block";
         document.getElementById("calculatorPage").style.display = "none";
         document.getElementById("resultPage").style.display = "none";
+        hideOrientationModal();
       }
 
       // === عرض الحاسبة ===
@@ -941,13 +1199,30 @@
         document.getElementById("mainPage").style.display = "none";
         document.getElementById("calculatorPage").style.display = "block";
         document.getElementById("resultPage").style.display = "none";
+        hideOrientationModal();
 
         loadSubjects();
       }
 
-      // === عرض التوجيه الدراسي ===
-      function showOrientation() {
-        alert("صفحة التوجيه الدراسي قيد التطوير");
+      // === إظهار نافذة اختيار مستوى التوجيه ===
+      function showOrientationModal() {
+        document.getElementById("orientationModal").classList.add("active");
+      }
+
+      // === إخفاء نافذة اختيار مستوى التوجيه ===
+      function hideOrientationModal() {
+        document.getElementById("orientationModal").classList.remove("active");
+      }
+
+      // === بدء اختبار التوجيه ===
+      function startOrientationTest(type) {
+        hideOrientationModal();
+        
+        if (type === 'middle') {
+          window.location.href = "orientation-middle.html";
+        } else if (type === 'bac') {
+          window.location.href = "orientation-bac.html";
+        }
       }
 
       // === عرض السجل ===
@@ -975,6 +1250,7 @@
       // === تحميل المواد ===
       function loadSubjects() {
         subjects = [];
+        customSubjectCount = 0;
         const levelSubjects = subjectsData[currentLevel] || subjectsData.middle;
 
         levelSubjects.forEach((subject, index) => {
@@ -986,8 +1262,29 @@
             grade2: "",
             grade3: "",
             grade4: "",
-            total: 0
+            total: 0,
+            isCustom: false
           });
+        });
+
+        renderSubjects();
+      }
+
+      // === إضافة مادة مخصصة ===
+      function addCustomSubject() {
+        customSubjectCount++;
+        const newId = subjects.length > 0 ? Math.max(...subjects.map((s) => s.id)) + 1 : 1;
+        
+        subjects.push({
+          id: newId,
+          name: `مادة مخصصة ${customSubjectCount}`,
+          coefficient: 1,
+          grade1: "",
+          grade2: "",
+          grade3: "",
+          grade4: "",
+          total: 0,
+          isCustom: true
         });
 
         renderSubjects();
@@ -1004,9 +1301,16 @@
           row.innerHTML = `
             <div class="subject-header">
               <div class="subject-name">
+                ${subject.isCustom ? '<span style="color: #8b5cf6; font-size: 0.9rem;">⚙️</span>' : ''}
                 <span>${subject.name}</span>
+                ${subject.isCustom ? '<span style="color: #8b5cf6; font-size: 0.8rem; margin-right: 5px;">(مخصصة)</span>' : ''}
               </div>
-              <div class="subject-coefficient">معامل: ${subject.coefficient}</div>
+              <div class="coefficient-controls">
+                <button class="coefficient-btn" onclick="decreaseCoefficient(${subject.id})" ${subject.coefficient <= 1 ? 'disabled' : ''}>-</button>
+                <span class="coefficient-value" id="coefficient_${subject.id}">${subject.coefficient}</span>
+                <button class="coefficient-btn" onclick="increaseCoefficient(${subject.id})">+</button>
+                <span style="color: #6b7280; font-size: 0.9rem; margin-right: 5px;">معامل</span>
+              </div>
             </div>
 
             <div class="grades-grid">
@@ -1082,6 +1386,45 @@
           `;
           container.appendChild(row);
         });
+      }
+
+      // === زيادة معامل المادة ===
+      function increaseCoefficient(id) {
+        const subject = subjects.find((s) => s.id === id);
+        if (subject) {
+          subject.coefficient += 1;
+          const coefficientElement = document.getElementById(`coefficient_${id}`);
+          if (coefficientElement) {
+            coefficientElement.textContent = subject.coefficient;
+          }
+        }
+      }
+
+      // === تقليل معامل المادة ===
+      function decreaseCoefficient(id) {
+        const subject = subjects.find((s) => s.id === id);
+        if (subject && subject.coefficient > 1) {
+          subject.coefficient -= 1;
+          const coefficientElement = document.getElementById(`coefficient_${id}`);
+          if (coefficientElement) {
+            coefficientElement.textContent = subject.coefficient;
+          }
+        }
+      }
+
+      // === إعادة تعيين جميع المعاملات ===
+      function resetAllCoefficients() {
+        const levelSubjects = subjectsData[currentLevel] || subjectsData.middle;
+        
+        subjects.forEach((subject, index) => {
+          if (!subject.isCustom && index < levelSubjects.length) {
+            subject.coefficient = levelSubjects[index].coefficient;
+          } else if (subject.isCustom) {
+            subject.coefficient = 1;
+          }
+        });
+
+        renderSubjects();
       }
 
       // === تحديث درجة المادة ===
@@ -1183,8 +1526,28 @@
           return;
         }
 
-        const average = totalWeightedGrade / totalCoefficient;
-        showResult(average);
+        currentAverage = totalWeightedGrade / totalCoefficient;
+        
+        // تخزين نتائج الحساب للاستخدام لاحقاً
+        calculationResults = {
+          average: currentAverage,
+          level: currentLevel,
+          subjects: subjects.map(subject => ({
+            name: subject.name,
+            coefficient: subject.coefficient,
+            total: calculateSubjectTotal(subject),
+            grades: {
+              grade1: subject.grade1,
+              grade2: subject.grade2,
+              grade3: subject.grade3,
+              grade4: subject.grade4
+            },
+            isCustom: subject.isCustom || false
+          })),
+          date: new Date().toISOString()
+        };
+        
+        showResult(currentAverage);
       }
 
       // === عرض النتيجة ===
@@ -1228,9 +1591,14 @@
           detailDiv.innerHTML = `
             <div class="subject-detail-header">
               <div class="subject-name">
+                ${subject.isCustom ? '<span style="color: #8b5cf6; font-size: 0.9rem;">⚙️</span>' : ''}
                 <span>${subject.name}</span>
               </div>
-              <div class="subject-coefficient">معامل: ${subject.coefficient}</div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="background: #e8f4ff; color: var(--primary); padding: 5px 15px; border-radius: 20px; font-weight: bold;">
+                  معامل: ${subject.coefficient}
+                </span>
+              </div>
             </div>
 
             <div class="subject-detail-grades">
@@ -1290,13 +1658,12 @@
 
       // === حفظ الحساب ===
       function saveCalculation() {
-        const average = parseFloat(document.getElementById("finalAverage").textContent);
         const calculation = {
           id: Date.now(),
           date: new Date().toISOString(),
           level: currentLevel,
-          average: average,
-          status: average >= 10 ? "ناجح" : "راسب",
+          average: currentAverage,
+          status: currentAverage >= 10 ? "ناجح" : "راسب",
           subjects: subjects.map(subject => ({
             name: subject.name,
             coefficient: subject.coefficient,
@@ -1306,7 +1673,8 @@
               grade3: subject.grade3,
               grade4: subject.grade4
             },
-            total: calculateSubjectTotal(subject)
+            total: calculateSubjectTotal(subject),
+            isCustom: subject.isCustom || false
           }))
         };
 
@@ -1336,6 +1704,30 @@
         window.print();
       }
 
+      // === الانتقال إلى التوجيه الدراسي ===
+      function goToOrientation() {
+        // حفظ نتائج الحساب مؤقتاً
+        localStorage.setItem("tempCalculationResults", JSON.stringify(calculationResults));
+        
+        // تحديد الصفحة المناسبة بناءً على المستوى
+        let orientationPage = "";
+        
+        if (currentLevel === "secondary") {
+          orientationPage = "orientation-bac.html";
+        } else if (currentLevel === "middle") {
+          orientationPage = "orientation-middle.html";
+        } else if (currentLevel === "primary") {
+          alert("التوجيه الدراسي غير متوفر للمرحلة الابتدائية");
+          return;
+        } else {
+          alert("المستوى الدراسي غير محدد");
+          return;
+        }
+        
+        // الانتقال إلى صفحة التوجيه الدراسي
+        window.location.href = orientationPage;
+      }
+
       // === عرض التعليمات ===
       function showInstructions() {
         alert(`📚 كيفية استخدام المنصة:
@@ -1345,14 +1737,19 @@
    - أدخل الدرجات الأربع لكل مادة
    - اضغط على "احسب المعدل"
 
-2️⃣ أنواع الدرجات:
-   - الدرجة الأولى: الاختبارات الشفهية
-   - الدرجة الثانية: الواجبات المنزلية
-   - الدرجة الثالثة: المشاريع والتقارير
-   - الدرجة الرابعة: الاختبارات النهائية
+2️⃣ تعديل المعاملات:
+   - ⚙️ استخدم أزرار + و - لتعديل معامل كل مادة
+   - 🔄 اضغط على "إعادة المعاملات" للرجوع للقيم الافتراضية
+   - ➕ أضف مواد مخصصة باستخدام زر "إضافة مادة"
 
-3️⃣ ميزات إضافية:
+3️⃣ اختبار التوجيه:
+   - 🧭 اختر "اختبار التوجيه" من الصفحة الرئيسية
+   - اختر مستوى التوجيه (إعدادي أو جامعي)
+   - احصل على توجيه دراسي مخصص
+
+4️⃣ ميزات إضافية:
    - 💾 حفظ النتائج في السجل
+   - 🧭 توجيه دراسي تلقائي بعد الحساب
    - 📊 عرض إحصائيات أدائك
    - 🖨️ طباعة النتائج
    - 🎲 تعبئة عشوائية للاختبار
