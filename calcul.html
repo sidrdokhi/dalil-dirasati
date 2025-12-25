@@ -253,7 +253,7 @@
         margin-bottom: 15px;
       }
 
-      /* إدخال الدرجات */
+      /* إدخال الدرجات - التصميم المحدث */
       .subjects-container {
         background: var(--light);
         padding: 30px;
@@ -270,42 +270,121 @@
         gap: 15px;
       }
 
+      .grades-header-info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+        padding: 10px 15px;
+        background: rgba(67, 97, 238, 0.1);
+        border-radius: 10px;
+        flex-wrap: wrap;
+      }
+
+      .grade-type {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+      }
+
+      .grade-1 { background: rgba(67, 97, 238, 0.2); color: #4361ee; }
+      .grade-2 { background: rgba(74, 222, 128, 0.2); color: #16a34a; }
+      .grade-3 { background: rgba(245, 158, 11, 0.2); color: #d97706; }
+      .grade-4 { background: rgba(139, 92, 246, 0.2); color: #7c3aed; }
+
       .subjects-list {
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
       }
 
       .subject-row {
-        display: grid;
-        grid-template-columns: 3fr 2fr 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 15px;
-        align-items: center;
         background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e5e7eb;
       }
 
-      @media (max-width: 768px) {
-        .subject-row {
-          grid-template-columns: 1fr;
-          text-align: center;
-        }
+      .subject-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #f3f4f6;
       }
 
       .subject-name {
         font-weight: bold;
         color: var(--dark);
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
 
-      .grade-input {
-        padding: 12px;
-        border: 2px solid #ddd;
-        border-radius: 8px;
-        text-align: center;
+      .subject-coefficient {
+        background: #e8f4ff;
+        color: var(--primary);
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-weight: bold;
         font-size: 1.1rem;
+      }
+
+      .grades-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .grade-input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .grade-input-group label {
+        font-weight: 600;
+        color: #4b5563;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .grade-input-label {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 20px;
+        font-size: 0.8rem;
+        color: white;
+        font-weight: bold;
+      }
+
+      .grade-1-label { background: #4361ee; }
+      .grade-2-label { background: #4ade80; }
+      .grade-3-label { background: #f59e0b; }
+      .grade-4-label { background: #8b5cf6; }
+
+      .grade-input {
+        padding: 12px 15px;
+        border: 2px solid #e5e7eb;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        text-align: center;
         transition: all 0.3s;
+        width: 100%;
       }
 
       .grade-input:focus {
@@ -314,13 +393,55 @@
         outline: none;
       }
 
-      .coefficient {
-        text-align: center;
-        background: #e8f4ff;
-        padding: 8px 15px;
-        border-radius: 20px;
+      .grade-input::placeholder {
+        color: #9ca3af;
+      }
+
+      .subject-total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        background: #f9fafb;
+        border-radius: 10px;
+        margin-top: 10px;
+        border: 1px dashed #d1d5db;
+      }
+
+      .subject-total-label {
+        font-weight: 600;
+        color: #374151;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .subject-total-value {
+        font-size: 1.3rem;
         font-weight: bold;
         color: var(--primary);
+        background: white;
+        padding: 8px 20px;
+        border-radius: 25px;
+        border: 2px solid #e5e7eb;
+      }
+
+      @media (max-width: 768px) {
+        .grades-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .subject-header {
+          flex-direction: column;
+          gap: 15px;
+          text-align: center;
+        }
+        
+        .subject-total {
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+        }
       }
 
       /* الأزرار */
@@ -359,7 +480,7 @@
         background: rgba(67, 97, 238, 0.1);
       }
 
-      /* نتيجة الحساب */
+      /* نتيجة الحساب - التصميم المحدث */
       .result-section {
         background: white;
         border: 3px solid var(--primary);
@@ -449,400 +570,80 @@
         color: #991b1b;
       }
 
-      /* قسم السجل */
-      .history-section {
-        background: white;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        margin-top: 40px;
-        display: none;
+      /* تفاصيل المواد في النتيجة */
+      .subjects-details-container {
+        margin: 40px 0;
       }
 
-      .history-section.active {
-        display: block;
+      .subject-detail-row {
+        background: #f9fafb;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 15px;
+        border: 1px solid #e5e7eb;
       }
 
-      .history-list {
-        max-height: 400px;
-        overflow-y: auto;
-        margin: 20px 0;
-      }
-
-      .history-item {
+      .subject-detail-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 20px;
-        border-bottom: 1px solid #eee;
-        transition: all 0.3s;
-      }
-
-      .history-item:hover {
-        background: var(--light);
-      }
-
-      /* قسم التوجيه الدراسي */
-      .orientation-section {
-        background: white;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        margin-top: 40px;
-        display: none;
-      }
-
-      .orientation-section.active {
-        display: block;
-        animation: fadeIn 0.5s;
-      }
-
-      .orientation-header {
-        text-align: center;
-        margin-bottom: 40px;
-        border-bottom: 2px solid #eee;
-        padding-bottom: 20px;
-      }
-
-      .orientation-header h2 {
-        color: var(--dark);
-        font-size: 2rem;
-        margin-bottom: 10px;
-      }
-
-      /* خيارات التوجيه */
-      .orientation-options {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-        margin-bottom: 40px;
-      }
-
-      .orientation-card {
-        background: var(--light);
-        border: 2px solid #ddd;
-        border-radius: 15px;
-        padding: 30px;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.3s;
-      }
-
-      .orientation-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      }
-
-      .orientation-card.middle {
-        border-color: #10b981;
-      }
-
-      .orientation-card.bac {
-        border-color: #8b5cf6;
-      }
-
-      .orientation-icon {
-        font-size: 3rem;
-        margin-bottom: 20px;
-      }
-
-      .middle .orientation-icon {
-        color: #10b981;
-      }
-
-      .bac .orientation-icon {
-        color: #8b5cf6;
-      }
-
-      .orientation-card h3 {
         margin-bottom: 15px;
-        color: var(--dark);
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e5e7eb;
       }
 
-      .orientation-card p {
-        color: #666;
-        margin-bottom: 20px;
-      }
-
-      /* اختبار التوجيه */
-      .orientation-test {
-        background: var(--light);
-        padding: 30px;
-        border-radius: 15px;
-        margin-bottom: 30px;
-      }
-
-      .test-progress {
-        margin-bottom: 25px;
-      }
-
-      .progress-bar {
-        height: 8px;
-        background: #ddd;
-        border-radius: 4px;
-        overflow: hidden;
-        margin-bottom: 10px;
-      }
-
-      .progress-fill {
-        height: 100%;
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        width: 0%;
-        border-radius: 4px;
-        transition: width 0.3s;
-      }
-
-      .progress-text {
-        text-align: center;
-        color: #666;
-        font-weight: 600;
-      }
-
-      .test-question {
-        background: white;
-        padding: 25px;
-        border-radius: 10px;
-        margin-bottom: 25px;
-        border-left: 5px solid var(--primary);
-      }
-
-      .test-question h3 {
-        color: var(--dark);
-        font-size: 1.3rem;
+      .subject-detail-grades {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
         margin-bottom: 15px;
       }
 
-      .test-options {
-        display: grid;
-        gap: 15px;
-        margin-bottom: 30px;
-      }
-
-      .test-option {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        border: 2px solid #ddd;
-        cursor: pointer;
-        transition: all 0.3s;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-      }
-
-      .test-option:hover {
-        border-color: var(--primary);
-        background: rgba(67, 97, 238, 0.05);
-      }
-
-      .test-option.selected {
-        border-color: var(--primary);
-        background: rgba(67, 97, 238, 0.1);
-      }
-
-      .test-option .option-number {
-        width: 40px;
-        height: 40px;
-        background: #ddd;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        color: #666;
-      }
-
-      .test-option.selected .option-number {
-        background: var(--primary);
-        color: white;
-      }
-
-      .test-navigation {
+      .subject-grade-item {
         display: flex;
         justify-content: space-between;
-        gap: 15px;
-      }
-
-      .btn-success {
-        background: linear-gradient(45deg, #10b981, #059669);
-        color: white;
-        border: none;
-        padding: 15px 30px;
-        border-radius: 10px;
-        cursor: pointer;
-        font-weight: bold;
-        display: flex;
         align-items: center;
-        gap: 10px;
-        transition: all 0.3s;
-      }
-
-      .btn-success:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
-      }
-
-      /* نتيجة التوجيه */
-      .orientation-result {
+        padding: 10px 15px;
         background: white;
-        border: 3px solid #10b981;
-        border-radius: 20px;
-        overflow: hidden;
-        margin-top: 40px;
-        display: none;
+        border-radius: 8px;
+        border: 1px solid #e5e7eb;
       }
 
-      .orientation-result.active {
-        display: block;
-        animation: slideIn 0.5s;
-      }
-
-      .orientation-result-header {
-        background: linear-gradient(45deg, #10b981, #059669);
-        color: white;
-        padding: 25px;
-        text-align: center;
-      }
-
-      .orientation-result-content {
-        padding: 40px;
-      }
-
-      .result-details {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-bottom: 40px;
-      }
-
-      .result-branch {
-        text-align: center;
-        padding: 25px;
-        background: var(--light);
-        border-radius: 15px;
-      }
-
-      .branch-icon {
-        font-size: 4rem;
-        margin-bottom: 20px;
-      }
-
-      .branch-name {
-        font-size: 2rem;
-        color: var(--dark);
-        margin-bottom: 10px;
-      }
-
-      .match-percentage {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        background: conic-gradient(#10b981 0% 80%, #ddd 80% 100%);
-        color: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 20px;
-        font-weight: bold;
-        position: relative;
-      }
-
-      .match-percentage::before {
-        content: '';
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        background: white;
-        border-radius: 50%;
-      }
-
-      .percentage-value {
-        position: relative;
-        z-index: 1;
-        font-size: 2.5rem;
-        line-height: 1;
-      }
-
-      .percentage-label {
-        position: relative;
-        z-index: 1;
-        font-size: 1rem;
-        opacity: 0.9;
-      }
-
-      .strengths-list {
-        list-style: none;
-        padding: 0;
-      }
-
-      .strengths-list li {
-        padding: 10px 0;
-        border-bottom: 1px solid #eee;
-        color: #475569;
+      .grade-item-label {
         display: flex;
         align-items: center;
-        gap: 10px;
-      }
-
-      .strengths-list li:last-child {
-        border-bottom: none;
-      }
-
-      .strengths-list li i {
-        color: #10b981;
-      }
-
-      .career-paths {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 20px;
-      }
-
-      .career-tag {
-        background: rgba(16, 185, 129, 0.1);
-        color: #059669;
-        padding: 8px 15px;
-        border-radius: 20px;
+        gap: 8px;
         font-weight: 500;
+        color: #4b5563;
       }
 
-      /* مقارنة الفروع */
-      .comparison-table {
-        background: white;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        margin-top: 30px;
-      }
-
-      .comparison-table table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-
-      .comparison-table th {
-        background: var(--primary);
-        color: white;
-        padding: 20px;
-        text-align: center;
+      .grade-item-value {
         font-weight: 600;
+        color: var(--dark);
       }
 
-      .comparison-table td {
-        padding: 15px 20px;
-        text-align: center;
-        border-bottom: 1px solid #eee;
-        color: #475569;
+      .subject-detail-total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        background: #e8f4ff;
+        border-radius: 10px;
+        border: 1px solid #bfdbfe;
       }
 
-      .comparison-table tr:last-child td {
-        border-bottom: none;
+      .detail-total-label {
+        font-weight: 600;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
 
-      .comparison-table tbody tr:hover {
-        background: var(--light);
+      .detail-total-value {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--primary);
       }
 
       footer {
@@ -926,87 +727,13 @@
             </button>
           </div>
         </div>
-
-        <div
-          style="
-            text-align: center;
-            padding: 30px;
-            background: #f8f9fa;
-            border-radius: 15px;
-          "
-        >
-          <h3 style="margin-bottom: 15px; color: var(--dark)">
-            📈 إحصائيات سريعة
-          </h3>
-          <div
-            style="
-              display: flex;
-              justify-content: center;
-              gap: 40px;
-              flex-wrap: wrap;
-            "
-          >
-            <div style="text-align: center">
-              <div
-                style="
-                  font-size: 2.5rem;
-                  font-weight: bold;
-                  color: var(--primary);
-                "
-                id="totalCalculations"
-              >
-                0
-              </div>
-              <div style="color: #666">إجمالي الحسابات</div>
-            </div>
-            <div style="text-align: center">
-              <div
-                style="
-                  font-size: 2.5rem;
-                  font-weight: bold;
-                  color: var(--success);
-                "
-                id="bestAverage"
-              >
-                0.00
-              </div>
-              <div style="color: #666">أفضل معدل</div>
-            </div>
-            <div style="text-align: center">
-              <div
-                style="
-                  font-size: 2.5rem;
-                  font-weight: bold;
-                  color: var(--warning);
-                "
-                id="averageOverall"
-              >
-                0.00
-              </div>
-              <div style="color: #666">متوسط جميع الحسابات</div>
-            </div>
-            <div style="text-align: center">
-              <div
-                style="
-                  font-size: 2.5rem;
-                  font-weight: bold;
-                  color: #8b5cf6;
-                "
-                id="orientationTests"
-              >
-                0
-              </div>
-              <div style="color: #666">اختبارات توجيه</div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- === صفحة الحاسبة === -->
       <div id="calculatorPage" class="calculator-section">
         <div class="calculator-header">
           <h2>🧮 حاسبة المعدل الدراسي</h2>
-          <p>اختر مستواك الدراسي وأدخل درجات المواد</p>
+          <p>اختر مستواك الدراسي وأدخل درجات المواد (4 درجات لكل مادة)</p>
         </div>
 
         <!-- اختيار المستوى -->
@@ -1031,14 +758,31 @@
         <!-- إدخال الدرجات -->
         <div class="subjects-container">
           <div class="subjects-header">
-            <h3 style="margin: 0">📝 إدخال الدرجات</h3>
+            <h3 style="margin: 0">📝 إدخال الدرجات (4 درجات لكل مادة)</h3>
             <div style="display: flex; gap: 10px">
-              <button class="btn btn-secondary" onclick="addSubject()">
-                ➕ إضافة مادة
-              </button>
               <button class="btn btn-secondary" onclick="autoFillGrades()">
                 🎲 تعبئة عشوائية
               </button>
+            </div>
+          </div>
+
+          <!-- معلومات عن أنواع الدرجات -->
+          <div class="grades-header-info">
+            <div class="grade-type">
+              <span class="grade-input-label grade-1-label">1</span>
+              <span>الدرجة الأولى</span>
+            </div>
+            <div class="grade-type">
+              <span class="grade-input-label grade-2-label">2</span>
+              <span>الدرجة الثانية</span>
+            </div>
+            <div class="grade-type">
+              <span class="grade-input-label grade-3-label">3</span>
+              <span>الدرجة الثالثة</span>
+            </div>
+            <div class="grade-type">
+              <span class="grade-input-label grade-4-label">4</span>
+              <span>الدرجة الرابعة</span>
             </div>
           </div>
 
@@ -1074,15 +818,14 @@
 
             <div class="result-message" id="resultMessage">-</div>
 
-            <div style="margin: 30px 0">
-              <h3>📊 تفاصيل المواد</h3>
-              <div id="subjectsDetails" style="margin-top: 20px">
-                <!-- تفاصيل المواد -->
-              </div>
+            <!-- تفاصيل المواد -->
+            <div class="subjects-details-container" id="subjectsDetailsContainer">
+              <h3 style="margin-bottom: 20px; text-align: center">📊 تفاصيل المواد</h3>
+              <!-- تفاصيل المواد تضاف هنا -->
             </div>
           </div>
 
-          <div style="display: flex; gap: 15px; justify-content: center">
+          <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
             <button class="btn btn-secondary" onclick="saveCalculation()">
               💾 حفظ النتيجة
             </button>
@@ -1093,265 +836,6 @@
               🖨️ طباعة
             </button>
           </div>
-        </div>
-      </div>
-
-      <!-- === صفحة السجل === -->
-      <div id="historyPage" class="history-section">
-        <h2>📜 سجل الحسابات</h2>
-        <p>عرض جميع حساباتك السابقة</p>
-
-        <div class="history-list" id="historyList">
-          <!-- السجل -->
-        </div>
-
-        <div style="text-align: center; margin-top: 30px">
-          <button class="btn btn-primary" onclick="showMainPage()">
-            ↩️ العودة للرئيسية
-          </button>
-          <button
-            class="btn btn-secondary"
-            onclick="clearAllHistory()"
-            style="margin-left: 15px"
-          >
-            🗑️ مسح السجل كله
-          </button>
-        </div>
-      </div>
-
-      <!-- === صفحة التوجيه الدراسي === -->
-      <div id="orientationPage" class="orientation-section">
-        <div class="orientation-header">
-          <h2>🧭 التوجيه الدراسي الذكي</h2>
-          <p>اكتشف المسار الدراسي المناسب بناءً على قدراتك واهتماماتك</p>
-        </div>
-
-        <!-- خيارات التوجيه -->
-        <div class="orientation-options">
-          <div class="orientation-card middle" onclick="startMiddleOrientation()">
-            <div class="orientation-icon">👨‍🎓</div>
-            <h3>التوجيه بعد الإعدادي</h3>
-            <p>اختر الفرع المناسب للمرحلة الثانوية</p>
-            <button class="btn btn-primary" style="margin-top: 15px">
-              بدء الاختبار
-            </button>
-          </div>
-
-          <div class="orientation-card bac" onclick="startBacOrientation()">
-            <div class="orientation-icon">🎓</div>
-            <h3>التوجيه الجامعي</h3>
-            <p>اختر التخصص المناسب بعد الباكالوريا</p>
-            <button class="btn btn-primary" style="margin-top: 15px">
-              بدء الاختبار
-            </button>
-          </div>
-        </div>
-
-        <!-- اختبار التوجيه بعد الإعدادي -->
-        <div id="middleTest" class="orientation-test" style="display: none;">
-          <div class="test-progress">
-            <div class="progress-bar">
-              <div class="progress-fill" id="middleTestProgress"></div>
-            </div>
-            <div class="progress-text" id="middleProgressText">السؤال 1/5</div>
-          </div>
-
-          <div class="test-question" id="middleQuestionContainer">
-            <!-- الأسئلة تضاف هنا -->
-          </div>
-
-          <div class="test-options" id="middleOptionsContainer">
-            <!-- الخيارات تضاف هنا -->
-          </div>
-
-          <div class="test-navigation">
-            <button class="btn btn-secondary" id="middlePrevBtn" onclick="middlePrevQuestion()" disabled>
-              <i class="fas fa-arrow-right"></i> السابق
-            </button>
-            <button class="btn btn-primary" id="middleNextBtn" onclick="middleNextQuestion()">
-              التالي <i class="fas fa-arrow-left"></i>
-            </button>
-            <button class="btn btn-success" id="middleResultBtn" onclick="showMiddleResult()" style="display: none;">
-              <i class="fas fa-chart-bar"></i> عرض النتيجة
-            </button>
-          </div>
-        </div>
-
-        <!-- اختبار التوجيه بعد الباكالوريا -->
-        <div id="bacTest" class="orientation-test" style="display: none;">
-          <div class="test-progress">
-            <div class="progress-bar">
-              <div class="progress-fill" id="bacTestProgress"></div>
-            </div>
-            <div class="progress-text" id="bacProgressText">السؤال 1/6</div>
-          </div>
-
-          <div class="test-question" id="bacQuestionContainer">
-            <!-- الأسئلة تضاف هنا -->
-          </div>
-
-          <div class="test-options" id="bacOptionsContainer">
-            <!-- الخيارات تضاف هنا -->
-          </div>
-
-          <div class="test-navigation">
-            <button class="btn btn-secondary" id="bacPrevBtn" onclick="bacPrevQuestion()" disabled>
-              <i class="fas fa-arrow-right"></i> السابق
-            </button>
-            <button class="btn btn-primary" id="bacNextBtn" onclick="bacNextQuestion()">
-              التالي <i class="fas fa-arrow-left"></i>
-            </button>
-            <button class="btn btn-success" id="bacResultBtn" onclick="showBacResult()" style="display: none;">
-              <i class="fas fa-chart-bar"></i> عرض النتيجة
-            </button>
-          </div>
-        </div>
-
-        <!-- نتيجة التوجيه بعد الإعدادي -->
-        <div id="middleResult" class="orientation-result" style="display: none;">
-          <div class="orientation-result-header">
-            <h2>🎯 نتيجة اختبار التوجيه</h2>
-            <p>التخصص المناسب لك بعد الإعدادي</p>
-          </div>
-
-          <div class="orientation-result-content">
-            <div class="result-details">
-              <div class="result-branch">
-                <div class="branch-icon" id="middleBranchIcon">👨‍🎓</div>
-                <div class="branch-name" id="middleBranchName">-</div>
-                <div class="match-percentage">
-                  <div class="percentage-value" id="middleMatchPercentage">0%</div>
-                  <div class="percentage-label">نسبة التوافق</div>
-                </div>
-              </div>
-
-              <div style="flex: 1;">
-                <h3>📊 نقاط قوتك</h3>
-                <ul class="strengths-list" id="middleStrengthsList">
-                  <!-- نقاط القوة -->
-                </ul>
-
-                <h3 style="margin-top: 30px;">💼 المسارات المهنية</h3>
-                <div class="career-paths" id="middleCareerPaths">
-                  <!-- المسارات المهنية -->
-                </div>
-              </div>
-            </div>
-
-            <!-- مقارنة الفروع -->
-            <div class="comparison-table">
-              <table>
-                <thead>
-                  <tr>
-                    <th>المعيار</th>
-                    <th>علمي</th>
-                    <th>أدبي</th>
-                    <th>تقني</th>
-                    <th>أصلي</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>متوسط سنوات الدراسة</td>
-                    <td>3 سنوات</td>
-                    <td>3 سنوات</td>
-                    <td>2-3 سنوات</td>
-                    <td>3-4 سنوات</td>
-                  </tr>
-                  <tr>
-                    <td>نسبة التوظيف</td>
-                    <td>85%</td>
-                    <td>78%</td>
-                    <td>92%</td>
-                    <td>80%</td>
-                  </tr>
-                  <tr>
-                    <td>المجالات المتاحة</td>
-                    <td>واسعة</td>
-                    <td>متوسطة</td>
-                    <td>متخصصة</td>
-                    <td>متخصصة</td>
-                  </tr>
-                  <tr>
-                    <td>متوسط الدخل</td>
-                    <td>مرتفع</td>
-                    <td>متوسط</td>
-                    <td>جيد</td>
-                    <td>متوسط إلى جيد</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
-              <button class="btn btn-secondary" onclick="saveOrientationResult('middle')">
-                💾 حفظ النتيجة
-              </button>
-              <button class="btn btn-primary" onclick="startMiddleOrientation()">
-                🔄 اختبار جديد
-              </button>
-              <button class="btn btn-secondary" onclick="printOrientationResult()">
-                🖨️ طباعة
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- نتيجة التوجيه بعد الباكالوريا -->
-        <div id="bacResult" class="orientation-result" style="display: none;">
-          <div class="orientation-result-header">
-            <h2>🎓 نتيجة التوجيه الجامعي</h2>
-            <p>التخصص الجامعي المناسب لك</p>
-          </div>
-
-          <div class="orientation-result-content">
-            <div class="result-details">
-              <div class="result-branch">
-                <div class="branch-icon" id="bacBranchIcon">🎓</div>
-                <div class="branch-name" id="bacBranchName">-</div>
-                <div class="match-percentage">
-                  <div class="percentage-value" id="bacMatchPercentage">0%</div>
-                  <div class="percentage-label">نسبة التوافق</div>
-                </div>
-              </div>
-
-              <div style="flex: 1;">
-                <h3>📊 نقاط قوتك</h3>
-                <ul class="strengths-list" id="bacStrengthsList">
-                  <!-- نقاط القوة -->
-                </ul>
-
-                <h3 style="margin-top: 30px;">🎯 التوصيات</h3>
-                <ul class="strengths-list" id="bacRecommendations">
-                  <!-- التوصيات -->
-                </ul>
-
-                <h3 style="margin-top: 30px;">💼 المجالات الوظيفية</h3>
-                <div class="career-paths" id="bacCareerPaths">
-                  <!-- المجالات الوظيفية -->
-                </div>
-              </div>
-            </div>
-
-            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
-              <button class="btn btn-secondary" onclick="saveOrientationResult('bac')">
-                💾 حفظ النتيجة
-              </button>
-              <button class="btn btn-primary" onclick="startBacOrientation()">
-                🔄 اختبار جديد
-              </button>
-              <button class="btn btn-secondary" onclick="printOrientationResult()">
-                🖨️ طباعة
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- زر العودة -->
-        <div style="text-align: center; margin-top: 30px;">
-          <button class="btn btn-primary" onclick="showMainPage()">
-            ↩️ العودة للرئيسية
-          </button>
         </div>
       </div>
     </div>
@@ -1398,274 +882,15 @@
         ],
       };
 
-      // بيانات اختبار التوجيه بعد الإعدادي
-      const middleOrientationQuestions = [
-        {
-          id: 1,
-          question: "ما هي المواد الدراسية التي تستمتع بدراستها أكثر؟",
-          options: [
-            { id: 'A', text: "الرياضيات والعلوم", score: { scientific: 3, technical: 2 } },
-            { id: 'B', text: "اللغات والأدب", score: { literary: 3, original: 2 } },
-            { id: 'C', text: "الرسم والفنون", score: { technical: 3, literary: 1 } },
-            { id: 'D', text: "التربية الإسلامية والقرآن", score: { original: 3, literary: 2 } }
-          ]
-        },
-        {
-          id: 2,
-          question: "كيف تفضل قضاء وقت فراغك؟",
-          options: [
-            { id: 'A', text: "قراءة الكتب العلمية", score: { scientific: 3 } },
-            { id: 'B', text: "الكتابة والتأليف", score: { literary: 3 } },
-            { id: 'C', text: "التصميم والبرمجة", score: { technical: 3 } },
-            { id: 'D', text: "دراسة العلوم الشرعية", score: { original: 3 } }
-          ]
-        },
-        {
-          id: 3,
-          question: "ما هي مهاراتك الأقوى؟",
-          options: [
-            { id: 'A', text: "التحليل والتفكير المنطقي", score: { scientific: 3, technical: 2 } },
-            { id: 'B', text: "التعبير والتواصل", score: { literary: 3, original: 1 } },
-            { id: 'C', text: "الإبداع والتصميم", score: { technical: 3, literary: 1 } },
-            { id: 'D', text: "الحفظ والفهم السريع", score: { original: 3, literary: 2 } }
-          ]
-        },
-        {
-          id: 4,
-          question: "ما هو حلمك المهني المستقبلي؟",
-          options: [
-            { id: 'A', text: "طبيب أو مهندس", score: { scientific: 3 } },
-            { id: 'B', text: "كاتب أو صحفي", score: { literary: 3 } },
-            { id: 'C', text: "تقني أو مصمم", score: { technical: 3 } },
-            { id: 'D', text: "عالم دين أو قاضي", score: { original: 3 } }
-          ]
-        },
-        {
-          id: 5,
-          question: "كيف تتعامل مع المشكلات؟",
-          options: [
-            { id: 'A', text: "أحللها خطوة بخطوة", score: { scientific: 3, technical: 2 } },
-            { id: 'B', text: "أبحث عن حلول إبداعية", score: { literary: 3, technical: 1 } },
-            { id: 'C', text: "أستخدم الأدوات والتقنيات", score: { technical: 3 } },
-            { id: 'D', text: "أستشير المراجع الموثوقة", score: { original: 3, literary: 1 } }
-          ]
-        }
-      ];
-
-      // بيانات اختبار التوجيه بعد الباكالوريا
-      const bacOrientationQuestions = [
-        {
-          id: 1,
-          question: "ما هي شعبة الباكالوريا الخاصة بك؟",
-          options: [
-            { id: 'A', text: "علوم تجريبية", score: { medical: 3, engineering: 2 } },
-            { id: 'B', text: "رياضيات", score: { engineering: 3, business: 2 } },
-            { id: 'C', text: "تقني", score: { engineering: 3, technical: 2 } },
-            { id: 'D', text: "آداب وعلوم إنسانية", score: { education: 3, arts: 2 } },
-            { id: 'E', text: "علوم شرعية", score: { education: 3, law: 2 } }
-          ]
-        },
-        {
-          id: 2,
-          question: "ما هو معدلك في الباكالوريا؟",
-          options: [
-            { id: 'A', text: "أعلى من 16/20", score: { medical: 3, engineering: 2 } },
-            { id: 'B', text: "بين 14 و 16/20", score: { engineering: 3, business: 2 } },
-            { id: 'C', text: "بين 12 و 14/20", score: { business: 3, education: 2 } },
-            { id: 'D', text: "أقل من 12/20", score: { technical: 3, education: 2 } }
-          ]
-        },
-        {
-          id: 3,
-          question: "ما هي اهتماماتك المهنية؟",
-          options: [
-            { id: 'A', text: "الطب والعلوم الصحية", score: { medical: 3 } },
-            { id: 'B', text: "الهندسة والتكنولوجيا", score: { engineering: 3 } },
-            { id: 'C', text: "الإدارة والأعمال", score: { business: 3 } },
-            { id: 'D', text: "التعليم والتربية", score: { education: 3 } },
-            { id: 'E', text: "الفنون والإبداع", score: { arts: 3 } }
-          ]
-        },
-        {
-          id: 4,
-          question: "ما هي المهارات التي تتمتع بها؟",
-          options: [
-            { id: 'A', text: "تحليلية ومنطقية", score: { medical: 2, engineering: 3 } },
-            { id: 'B', text: "إبداعية وتصميمية", score: { arts: 3, engineering: 1 } },
-            { id: 'C', text: "تواصلية واجتماعية", score: { education: 3, business: 2 } },
-            { id: 'D', text: "تنظيمية وإدارية", score: { business: 3 } }
-          ]
-        },
-        {
-          id: 5,
-          question: "ما هو نمط العمل المفضل لديك؟",
-          options: [
-            { id: 'A', text: "عمل مكتبي منظم", score: { business: 3, education: 2 } },
-            { id: 'B', text: "عمل ميداني وتطبيقي", score: { engineering: 3, medical: 2 } },
-            { id: 'C', text: "عمل إبداعي حر", score: { arts: 3 } },
-            { id: 'D', text: "عمل خدمي وإنساني", score: { medical: 3, education: 2 } }
-          ]
-        },
-        {
-          id: 6,
-          question: "ما هي التحديات التي تستمتع بها؟",
-          options: [
-            { id: 'A', text: "حل المشكلات المعقدة", score: { engineering: 3, medical: 2 } },
-            { id: 'B', text: "التعامل مع الناس", score: { education: 3, business: 2 } },
-            { id: 'C', text: "الإبداع والابتكار", score: { arts: 3, engineering: 1 } },
-            { id: 'D', text: "التخطيط والتنظيم", score: { business: 3 } }
-          ]
-        }
-      ];
-
-      // بيانات الفروع والتخصصات
-      const branchesData = {
-        scientific: {
-          name: "الشعبة العلمية",
-          icon: "🔬",
-          strengths: [
-            "تفكير تحليلي ومنطقي",
-            "قدرة على حل المشكلات المعقدة",
-            "اهتمام بالتفاصيل الدقيقة",
-            "مهارات رياضية وعلمية ممتازة"
-          ],
-          careers: ["طبيب", "مهندس", "صيدلي", "باحث علمي", "أستاذ جامعي"]
-        },
-        literary: {
-          name: "الشعبة الأدبية",
-          icon: "📚",
-          strengths: [
-            "قدرة تعبيرية ممتازة",
-            "إبداع في الكتابة والتأليف",
-            "فهم عميق للغة والأدب",
-            "حس نقدي وتحليلي"
-          ],
-          careers: ["كاتب", "صحفي", "مترجم", "أديب", "ناقد أدبي"]
-        },
-        technical: {
-          name: "التقني والمهني",
-          icon: "🔧",
-          strengths: [
-            "مهارات تقنية عالية",
-            "قدرة على التعامل مع الأدوات",
-            "تفكير إبداعي وتصميمي",
-            "مهارات عملية ممتازة"
-          ],
-          careers: ["تقني مختص", "مبرمج", "مصمم جرافيك", "فني", "حرفي"]
-        },
-        original: {
-          name: "تعليم أصلي",
-          icon: "🕌",
-          strengths: [
-            "حفظ وفهم سريع",
-            "قدرة على الاستنباط",
-            "اهتمام بالعلوم الشرعية",
-            "أخلاق ومبادئ قوية"
-          ],
-          careers: ["عالم دين", "قاضي", "مفتي", "واعظ", "مدرس شرعي"]
-        }
-      };
-
-      const majorsData = {
-        medical: {
-          name: "التخصصات الطبية",
-          icon: "🩺",
-          strengths: [
-            "قدرة على التعامل مع الضغط",
-            "دقة واهتمام بالتفاصيل",
-            "مهارات تواصل ممتازة",
-            "تعاطف ورغبة في المساعدة"
-          ],
-          recommendations: [
-            "ركز على المواد العلمية",
-            "طور مهارات التواصل",
-            "احصل على معدل مرتفع",
-            "شارك في الأنشطة التطوعية"
-          ],
-          careers: ["طبيب بشري", "طبيب أسنان", "صيدلي", "تمريض", "علاج طبيعي"]
-        },
-        engineering: {
-          name: "التخصصات الهندسية",
-          icon: "🏗️",
-          strengths: [
-            "تفكير تحليلي ومنطقي",
-            "مهارات رياضية متقدمة",
-            "قدرة على حل المشكلات",
-            "اهتمام بالتكنولوجيا"
-          ],
-          recommendations: [
-            "طور مهاراتك في الرياضيات",
-            "تعلم البرمجة الأساسية",
-            "شارك في المسابقات الهندسية",
-            "تدرب على التفكير المنطقي"
-          ],
-          careers: ["مهندس مدني", "مهندس معماري", "مهندس برمجيات", "مهندس ميكانيك", "مهندس كهرباء"]
-        },
-        business: {
-          name: "التخصصات الإدارية",
-          icon: "💼",
-          strengths: [
-            "مهارات قيادية",
-            "تفكير استراتيجي",
-            "قدرة على التفاوض",
-            "مهارات تنظيمية"
-          ],
-          recommendations: [
-            "طور مهارات التواصل",
-            "تعلم اللغات الأجنبية",
-            "شارك في الأنشطة القيادية",
-            "تابع التطورات الاقتصادية"
-          ],
-          careers: ["مدير أعمال", "محاسب", "مسوق", "مستشار مالي", "مدير موارد بشرية"]
-        },
-        education: {
-          name: "التخصصات التربوية",
-          icon: "👨‍🏫",
-          strengths: [
-            "صبر وتحمل",
-            "مهارات تواصل ممتازة",
-            "حب التعلم والتعليم",
-            "قدرة على الإقناع"
-          ],
-          recommendations: [
-            "طور مهاراتك اللغوية",
-            "شارك في الأنشطة التعليمية",
-            "تدرب على الشرح والتوضيح",
-            "اطلع على المناهج الحديثة"
-          ],
-          careers: ["معلم", "أستاذ جامعي", "مرشد تربوي", "مطور مناهج", "مدير مدرسة"]
-        },
-        arts: {
-          name: "التخصصات الفنية",
-          icon: "🎨",
-          strengths: [
-            "إبداع وخيال واسع",
-            "حس فني وجمالي",
-            "مهارات تقنية فنية",
-            "قدرة على التعبير"
-          ],
-          recommendations: [
-            "طور محفظتك الفنية",
-            "تعلم برامج التصميم",
-            "شارك في المعارض الفنية",
-            "تابع التطورات الفنية"
-          ],
-          careers: ["مصمم جرافيك", "فنان تشكيلي", "مخرج", "موسيقي", "كاتب سيناريو"]
-        }
-      };
-
       let currentLevel = "middle";
       let subjects = [];
       let calculations = [];
-      let orientationResults = [];
 
       // === تهيئة الصفحة ===
       document.addEventListener("DOMContentLoaded", function () {
         loadUser();
         loadCalculations();
-        loadOrientationResults();
         showMainPage();
-        updateStatistics();
         console.log("تم تحميل المنصة بنجاح");
       });
 
@@ -1675,17 +900,13 @@
         if (userData) {
           const user = JSON.parse(userData);
           document.getElementById("userName").textContent = user.fullName;
-          document.getElementById(
-            "welcomeName"
-          ).textContent = `أهلاً بك، ${user.fullName}`;
+          document.getElementById("welcomeName").textContent = `أهلاً بك، ${user.fullName}`;
 
-          // استخدام مستوى المستخدم إذا كان محدداً
           if (user.level) {
             currentLevel = user.level;
             selectLevel(user.level);
           }
         } else {
-          // إذا لم يكن مسجلاً، ارجع لصفحة تسجيل الدخول
           window.location.href = "login.html";
         }
       }
@@ -1698,106 +919,55 @@
         }
       }
 
-      // === تحميل نتائج التوجيه ===
-      function loadOrientationResults() {
-        const saved = localStorage.getItem("orientationResults");
-        if (saved) {
-          orientationResults = JSON.parse(saved);
-        }
-      }
-
-      // === تحديث الإحصائيات ===
-      function updateStatistics() {
-        const totalCalculations = calculations.length;
-        const totalOrientationTests = orientationResults.length;
-        
-        document.getElementById("totalCalculations").textContent =
-          totalCalculations;
-        document.getElementById("orientationTests").textContent =
-          totalOrientationTests;
-
-        if (calculations.length > 0) {
-          const bestAverage = Math.max(...calculations.map((c) => c.average));
-          const averageOverall =
-            calculations.reduce((sum, c) => sum + c.average, 0) /
-            calculations.length;
-
-          document.getElementById("bestAverage").textContent =
-            bestAverage.toFixed(2);
-          document.getElementById("averageOverall").textContent =
-            averageOverall.toFixed(2);
-        }
-      }
-
       // === عرض الصفحة الرئيسية ===
       function showMainPage() {
-        // تحديث الروابط النشطة
         document.querySelectorAll(".nav-link").forEach((link) => {
           link.classList.remove("active");
         });
         document.querySelectorAll(".nav-link")[0].classList.add("active");
 
-        // إظهار وإخفاء الأقسام
         document.getElementById("mainPage").style.display = "block";
         document.getElementById("calculatorPage").style.display = "none";
         document.getElementById("resultPage").style.display = "none";
-        document.getElementById("historyPage").style.display = "none";
-        document.getElementById("orientationPage").style.display = "none";
-
-        updateStatistics();
       }
 
       // === عرض الحاسبة ===
       function showCalculator() {
-        // تحديث الروابط النشطة
         document.querySelectorAll(".nav-link").forEach((link) => {
           link.classList.remove("active");
         });
         document.querySelectorAll(".nav-link")[1].classList.add("active");
 
-        // إظهار وإخفاء الأقسام
         document.getElementById("mainPage").style.display = "none";
         document.getElementById("calculatorPage").style.display = "block";
         document.getElementById("resultPage").style.display = "none";
-        document.getElementById("historyPage").style.display = "none";
-        document.getElementById("orientationPage").style.display = "none";
 
-        // تحميل المواد
         loadSubjects();
       }
 
       // === عرض التوجيه الدراسي ===
       function showOrientation() {
-        // تحديث الروابط النشطة
-        document.querySelectorAll(".nav-link").forEach((link) => {
-          link.classList.remove("active");
-        });
-        document.querySelectorAll(".nav-link")[2].classList.add("active");
+        alert("صفحة التوجيه الدراسي قيد التطوير");
+      }
 
-        // إظهار وإخفاء الأقسام
-        document.getElementById("mainPage").style.display = "none";
-        document.getElementById("calculatorPage").style.display = "none";
-        document.getElementById("resultPage").style.display = "none";
-        document.getElementById("historyPage").style.display = "none";
-        document.getElementById("orientationPage").style.display = "block";
-        document.getElementById("orientationPage").classList.add("active");
-
-        // إخفاء جميع الاختبارات والنتائج
-        document.getElementById("middleTest").style.display = "none";
-        document.getElementById("bacTest").style.display = "none";
-        document.getElementById("middleResult").style.display = "none";
-        document.getElementById("bacResult").style.display = "none";
+      // === عرض السجل ===
+      function showHistory() {
+        alert("صفحة السجل قيد التطوير");
       }
 
       // === اختيار المستوى ===
       function selectLevel(level) {
         currentLevel = level;
 
-        // تحديث البطاقات النشطة
         document.querySelectorAll(".level-card").forEach((card) => {
           card.classList.remove("active");
         });
-        event.target.closest(".level-card").classList.add("active");
+        
+        const levelCards = document.querySelectorAll(".level-card");
+        const index = level === 'primary' ? 0 : level === 'middle' ? 1 : 2;
+        if (levelCards[index]) {
+          levelCards[index].classList.add("active");
+        }
 
         loadSubjects();
       }
@@ -1811,8 +981,12 @@
           subjects.push({
             id: index + 1,
             name: subject.name,
-            grade: "",
             coefficient: subject.coefficient,
+            grade1: "",
+            grade2: "",
+            grade3: "",
+            grade4: "",
+            total: 0
           });
         });
 
@@ -1828,51 +1002,139 @@
           const row = document.createElement("div");
           row.className = "subject-row";
           row.innerHTML = `
-                    <div class="subject-name">${subject.name}</div>
-                    <input type="number" 
-                           class="grade-input" 
-                           value="${subject.grade || ""}" 
-                           min="0" 
-                           max="20" 
-                           step="0.25" 
-                           placeholder="أدخل الدرجة"
-                           oninput="updateSubjectGrade(${
-                             subject.id
-                           }, this.value)">
-                    <div class="coefficient">معامل: ${subject.coefficient}</div>
-                `;
+            <div class="subject-header">
+              <div class="subject-name">
+                <span>${subject.name}</span>
+              </div>
+              <div class="subject-coefficient">معامل: ${subject.coefficient}</div>
+            </div>
+
+            <div class="grades-grid">
+              <div class="grade-input-group">
+                <label>
+                  <span class="grade-input-label grade-1-label">1</span>
+                  الدرجة الأولى
+                </label>
+                <input type="number" 
+                       class="grade-input" 
+                       value="${subject.grade1 || ""}" 
+                       min="0" 
+                       max="20" 
+                       step="0.25" 
+                       placeholder="0-20"
+                       oninput="updateSubjectGrade(${subject.id}, 'grade1', this.value)">
+              </div>
+
+              <div class="grade-input-group">
+                <label>
+                  <span class="grade-input-label grade-2-label">2</span>
+                  الدرجة الثانية
+                </label>
+                <input type="number" 
+                       class="grade-input" 
+                       value="${subject.grade2 || ""}" 
+                       min="0" 
+                       max="20" 
+                       step="0.25" 
+                       placeholder="0-20"
+                       oninput="updateSubjectGrade(${subject.id}, 'grade2', this.value)">
+              </div>
+
+              <div class="grade-input-group">
+                <label>
+                  <span class="grade-input-label grade-3-label">3</span>
+                  الدرجة الثالثة
+                </label>
+                <input type="number" 
+                       class="grade-input" 
+                       value="${subject.grade3 || ""}" 
+                       min="0" 
+                       max="20" 
+                       step="0.25" 
+                       placeholder="0-20"
+                       oninput="updateSubjectGrade(${subject.id}, 'grade3', this.value)">
+              </div>
+
+              <div class="grade-input-group">
+                <label>
+                  <span class="grade-input-label grade-4-label">4</span>
+                  الدرجة الرابعة
+                </label>
+                <input type="number" 
+                       class="grade-input" 
+                       value="${subject.grade4 || ""}" 
+                       min="0" 
+                       max="20" 
+                       step="0.25" 
+                       placeholder="0-20"
+                       oninput="updateSubjectGrade(${subject.id}, 'grade4', this.value)">
+              </div>
+            </div>
+
+            <div class="subject-total">
+              <div class="subject-total-label">
+                <span>المجموع الكلي:</span>
+              </div>
+              <div class="subject-total-value" id="subjectTotal_${subject.id}">
+                ${calculateSubjectTotal(subject).toFixed(2)}
+              </div>
+            </div>
+          `;
           container.appendChild(row);
         });
       }
 
       // === تحديث درجة المادة ===
-      function updateSubjectGrade(id, grade) {
+      function updateSubjectGrade(id, gradeType, grade) {
         const subject = subjects.find((s) => s.id === id);
         if (subject) {
-          subject.grade = grade;
+          subject[gradeType] = grade;
+          
+          // تحديث المجموع الكلي للمادة
+          const total = calculateSubjectTotal(subject);
+          subject.total = total;
+          
+          const totalElement = document.getElementById(`subjectTotal_${id}`);
+          if (totalElement) {
+            totalElement.textContent = total.toFixed(2);
+          }
         }
       }
 
-      // === إضافة مادة جديدة ===
-      function addSubject() {
-        const newId =
-          subjects.length > 0 ? Math.max(...subjects.map((s) => s.id)) + 1 : 1;
-
-        subjects.push({
-          id: newId,
-          name: `مادة إضافية ${newId}`,
-          grade: "",
-          coefficient: 1,
-        });
-
-        renderSubjects();
+      // === حساب المجموع الكلي للمادة ===
+      function calculateSubjectTotal(subject) {
+        let total = 0;
+        let count = 0;
+        
+        // حساب متوسط الدرجات الأربع
+        if (subject.grade1 !== "") {
+          total += parseFloat(subject.grade1) || 0;
+          count++;
+        }
+        if (subject.grade2 !== "") {
+          total += parseFloat(subject.grade2) || 0;
+          count++;
+        }
+        if (subject.grade3 !== "") {
+          total += parseFloat(subject.grade3) || 0;
+          count++;
+        }
+        if (subject.grade4 !== "") {
+          total += parseFloat(subject.grade4) || 0;
+          count++;
+        }
+        
+        return count > 0 ? total / count : 0;
       }
 
       // === تعبئة عشوائية ===
       function autoFillGrades() {
         subjects.forEach((subject) => {
-          const randomGrade = (Math.random() * 10 + 10).toFixed(2);
-          subject.grade = randomGrade;
+          subject.grade1 = (Math.random() * 10 + 10).toFixed(2);
+          subject.grade2 = (Math.random() * 10 + 10).toFixed(2);
+          subject.grade3 = (Math.random() * 10 + 10).toFixed(2);
+          subject.grade4 = (Math.random() * 10 + 10).toFixed(2);
+          subject.total = calculateSubjectTotal(subject);
         });
 
         renderSubjects();
@@ -1881,24 +1143,37 @@
       // === حساب المعدل ===
       function calculateAverage() {
         // التحقق من صحة الدرجات
-        const invalidSubjects = subjects.filter((subject) => {
-          const grade = parseFloat(subject.grade);
-          return isNaN(grade) || grade < 0 || grade > 20;
+        let hasInvalidGrades = false;
+        
+        subjects.forEach((subject) => {
+          const grades = [
+            {value: subject.grade1, name: "الدرجة الأولى"},
+            {value: subject.grade2, name: "الدرجة الثانية"},
+            {value: subject.grade3, name: "الدرجة الثالثة"},
+            {value: subject.grade4, name: "الدرجة الرابعة"}
+          ];
+          
+          grades.forEach(grade => {
+            if (grade.value !== "") {
+              const gradeNum = parseFloat(grade.value);
+              if (isNaN(gradeNum) || gradeNum < 0 || gradeNum > 20) {
+                alert(`الرجاء إدخال درجة صحيحة لـ ${grade.name} في مادة ${subject.name} (بين 0 و 20)`);
+                hasInvalidGrades = true;
+              }
+            }
+          });
         });
 
-        if (invalidSubjects.length > 0) {
-          alert("الرجاء إدخال درجات صحيحة لجميع المواد (بين 0 و 20)");
-          return;
-        }
+        if (hasInvalidGrades) return;
 
         // حساب المعدل
         let totalWeightedGrade = 0;
         let totalCoefficient = 0;
 
         subjects.forEach((subject) => {
-          const grade = parseFloat(subject.grade);
-          if (!isNaN(grade)) {
-            totalWeightedGrade += grade * subject.coefficient;
+          const subjectTotal = calculateSubjectTotal(subject);
+          if (subjectTotal > 0) {
+            totalWeightedGrade += subjectTotal * subject.coefficient;
             totalCoefficient += subject.coefficient;
           }
         });
@@ -1920,10 +1195,8 @@
         document.getElementById("resultPage").classList.add("active");
 
         // تحديث القيم
-        document.getElementById("finalAverage").textContent =
-          average.toFixed(2);
-        document.getElementById("resultDate").textContent =
-          new Date().toLocaleDateString("ar-SA");
+        document.getElementById("finalAverage").textContent = average.toFixed(2);
+        document.getElementById("resultDate").textContent = new Date().toLocaleDateString("ar-SA");
 
         // عرض الرسالة المناسبة
         const messageEl = document.getElementById("resultMessage");
@@ -1945,52 +1218,113 @@
         messageEl.className = `result-message ${messageClass}`;
 
         // عرض تفاصيل المواد
-        const detailsContainer = document.getElementById("subjectsDetails");
+        const detailsContainer = document.getElementById("subjectsDetailsContainer");
         detailsContainer.innerHTML = "";
 
         subjects.forEach((subject) => {
-          const grade = parseFloat(subject.grade) || 0;
+          const subjectTotal = calculateSubjectTotal(subject);
           const detailDiv = document.createElement("div");
-          detailDiv.className = "subject-row";
+          detailDiv.className = "subject-detail-row";
           detailDiv.innerHTML = `
-                    <div class="subject-name">${subject.name}</div>
-                    <div style="text-align: center; font-weight: bold; color: ${
-                      grade >= 10 ? "#166534" : "#991b1b"
-                    }">
-                        ${grade.toFixed(2)} / 20
-                    </div>
-                    <div class="coefficient">معامل: ${subject.coefficient}</div>
-                `;
+            <div class="subject-detail-header">
+              <div class="subject-name">
+                <span>${subject.name}</span>
+              </div>
+              <div class="subject-coefficient">معامل: ${subject.coefficient}</div>
+            </div>
+
+            <div class="subject-detail-grades">
+              ${subject.grade1 !== "" ? `
+                <div class="subject-grade-item">
+                  <span class="grade-item-label">
+                    <span class="grade-input-label grade-1-label">1</span>
+                    الدرجة الأولى
+                  </span>
+                  <span class="grade-item-value">${parseFloat(subject.grade1).toFixed(2)}</span>
+                </div>
+              ` : ''}
+              
+              ${subject.grade2 !== "" ? `
+                <div class="subject-grade-item">
+                  <span class="grade-item-label">
+                    <span class="grade-input-label grade-2-label">2</span>
+                    الدرجة الثانية
+                  </span>
+                  <span class="grade-item-value">${parseFloat(subject.grade2).toFixed(2)}</span>
+                </div>
+              ` : ''}
+              
+              ${subject.grade3 !== "" ? `
+                <div class="subject-grade-item">
+                  <span class="grade-item-label">
+                    <span class="grade-input-label grade-3-label">3</span>
+                    الدرجة الثالثة
+                  </span>
+                  <span class="grade-item-value">${parseFloat(subject.grade3).toFixed(2)}</span>
+                </div>
+              ` : ''}
+              
+              ${subject.grade4 !== "" ? `
+                <div class="subject-grade-item">
+                  <span class="grade-item-label">
+                    <span class="grade-input-label grade-4-label">4</span>
+                    الدرجة الرابعة
+                  </span>
+                  <span class="grade-item-value">${parseFloat(subject.grade4).toFixed(2)}</span>
+                </div>
+              ` : ''}
+            </div>
+
+            <div class="subject-detail-total">
+              <div class="detail-total-label">
+                <span>المعدل النهائي للمادة:</span>
+              </div>
+              <div class="detail-total-value">
+                ${subjectTotal.toFixed(2)} / 20
+              </div>
+            </div>
+          `;
           detailsContainer.appendChild(detailDiv);
         });
       }
 
       // === حفظ الحساب ===
       function saveCalculation() {
-        const average = parseFloat(
-          document.getElementById("finalAverage").textContent
-        );
+        const average = parseFloat(document.getElementById("finalAverage").textContent);
         const calculation = {
           id: Date.now(),
           date: new Date().toISOString(),
           level: currentLevel,
           average: average,
           status: average >= 10 ? "ناجح" : "راسب",
-          subjectsCount: subjects.length,
+          subjects: subjects.map(subject => ({
+            name: subject.name,
+            coefficient: subject.coefficient,
+            grades: {
+              grade1: subject.grade1,
+              grade2: subject.grade2,
+              grade3: subject.grade3,
+              grade4: subject.grade4
+            },
+            total: calculateSubjectTotal(subject)
+          }))
         };
 
         calculations.unshift(calculation);
         localStorage.setItem("calculations", JSON.stringify(calculations));
 
         alert("✅ تم حفظ الحساب بنجاح في سجلك الشخصي");
-        updateStatistics();
       }
 
       // === حساب جديد ===
       function newCalculation() {
         // إعادة تعيين المواد
         subjects.forEach((subject) => {
-          subject.grade = "";
+          subject.grade1 = "";
+          subject.grade2 = "";
+          subject.grade3 = "";
+          subject.grade4 = "";
+          subject.total = 0;
         });
 
         // العودة للحاسبة
@@ -2002,129 +1336,20 @@
         window.print();
       }
 
-      // === عرض السجل ===
-      function showHistory() {
-        // تحديث الروابط النشطة
-        document.querySelectorAll(".nav-link").forEach((link) => {
-          link.classList.remove("active");
-        });
-        document.querySelectorAll(".nav-link")[3].classList.add("active");
-
-        // إظهار وإخفاء الأقسام
-        document.getElementById("mainPage").style.display = "none";
-        document.getElementById("calculatorPage").style.display = "none";
-        document.getElementById("resultPage").style.display = "none";
-        document.getElementById("orientationPage").style.display = "none";
-        document.getElementById("historyPage").style.display = "block";
-        document.getElementById("historyPage").classList.add("active");
-
-        loadHistory();
-      }
-
-      // === تحميل السجل ===
-      function loadHistory() {
-        const container = document.getElementById("historyList");
-
-        if (calculations.length === 0) {
-          container.innerHTML = `
-                    <div style="text-align: center; padding: 50px; color: #666;">
-                        <div style="font-size: 3rem; margin-bottom: 20px;">📭</div>
-                        <h3 style="color: #666;">لا توجد حسابات سابقة</h3>
-                        <p>قم بحساب معدلك الأول للبدء!</p>
-                    </div>
-                `;
-          return;
-        }
-
-        let html = "";
-        calculations.forEach((calc) => {
-          const levelName =
-            calc.level === "primary"
-              ? "ابتدائي"
-              : calc.level === "middle"
-              ? "إعدادي"
-              : "ثانوي";
-
-          html += `
-                    <div class="history-item">
-                        <div>
-                            <strong>${levelName} - ${
-            calc.subjectsCount
-          } مادة</strong>
-                            <div style="color: #666; font-size: 0.9rem; margin-top: 5px;">
-                                ${new Date(calc.date).toLocaleDateString(
-                                  "ar-SA"
-                                )}
-                            </div>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 20px;">
-                            <div style="font-size: 1.5rem; font-weight: bold; color: ${
-                              calc.average >= 10 ? "#166534" : "#991b1b"
-                            }">
-                                ${calc.average.toFixed(2)}
-                            </div>
-                            <div style="background: ${
-                              calc.average >= 10 ? "#d1fae5" : "#fee2e2"
-                            }; 
-                                         color: ${
-                                           calc.average >= 10
-                                             ? "#166534"
-                                             : "#991b1b"
-                                         };
-                                         padding: 5px 15px; border-radius: 20px; font-weight: bold;">
-                                ${calc.status}
-                            </div>
-                            <button onclick="deleteCalculation(${calc.id})" 
-                                    style="background: #ef4444; color: white; border: none; 
-                                           padding: 8px 15px; border-radius: 5px; cursor: pointer;">
-                                حذف
-                            </button>
-                        </div>
-                    </div>
-                `;
-        });
-
-        container.innerHTML = html;
-      }
-
-      // === حذف حساب ===
-      function deleteCalculation(id) {
-        if (confirm("هل تريد حذف هذا الحساب؟")) {
-          calculations = calculations.filter((calc) => calc.id !== id);
-          localStorage.setItem("calculations", JSON.stringify(calculations));
-          loadHistory();
-          updateStatistics();
-        }
-      }
-
-      // === مسح السجل كله ===
-      function clearAllHistory() {
-        if (
-          confirm(
-            "هل تريد مسح جميع الحسابات السابقة؟ هذا الإجراء لا يمكن التراجع عنه."
-          )
-        ) {
-          calculations = [];
-          localStorage.removeItem("calculations");
-          loadHistory();
-          updateStatistics();
-          alert("تم مسح السجل بالكامل");
-        }
-      }
-
       // === عرض التعليمات ===
       function showInstructions() {
         alert(`📚 كيفية استخدام المنصة:
 
 1️⃣ حساب المعدل:
    - اختر مستواك الدراسي
-   - أدخل درجات المواد
+   - أدخل الدرجات الأربع لكل مادة
    - اضغط على "احسب المعدل"
 
-2️⃣ التوجيه الدراسي:
-   - اختر نوع التوجيه (إعدادي/جامعي)
-   - أجب على أسئلة الاختبار
-   - احصل على توصيات مخصصة
+2️⃣ أنواع الدرجات:
+   - الدرجة الأولى: الاختبارات الشفهية
+   - الدرجة الثانية: الواجبات المنزلية
+   - الدرجة الثالثة: المشاريع والتقارير
+   - الدرجة الرابعة: الاختبارات النهائية
 
 3️⃣ ميزات إضافية:
    - 💾 حفظ النتائج في السجل
@@ -2136,402 +1361,12 @@
       }
 
       // === تسجيل الخروج ===
-      document
-        .getElementById("logoutBtn")
-        .addEventListener("click", function () {
-          if (confirm("هل تريد تسجيل الخروج؟")) {
-            localStorage.removeItem("currentUser");
-            window.location.href = "index.html";
-          }
-        });
-
-      // ===== نظام التوجيه الدراسي =====
-      
-      // متغيرات اختبار التوجيه بعد الإعدادي
-      let middleCurrentQuestion = 0;
-      let middleUserAnswers = {};
-
-      // متغيرات اختبار التوجيه بعد الباكالوريا
-      let bacCurrentQuestion = 0;
-      let bacUserAnswers = {};
-
-      // بدء اختبار التوجيه بعد الإعدادي
-      function startMiddleOrientation() {
-        // إظهار اختبار التوجيه بعد الإعدادي
-        document.getElementById("middleTest").style.display = "block";
-        document.getElementById("bacTest").style.display = "none";
-        document.getElementById("middleResult").style.display = "none";
-        document.getElementById("bacResult").style.display = "none";
-
-        // إعادة تعيين المتغيرات
-        middleCurrentQuestion = 0;
-        middleUserAnswers = {};
-
-        // عرض السؤال الأول
-        showMiddleQuestion(middleCurrentQuestion);
-      }
-
-      // بدء اختبار التوجيه بعد الباكالوريا
-      function startBacOrientation() {
-        // إظهار اختبار التوجيه بعد الباكالوريا
-        document.getElementById("bacTest").style.display = "block";
-        document.getElementById("middleTest").style.display = "none";
-        document.getElementById("middleResult").style.display = "none";
-        document.getElementById("bacResult").style.display = "none";
-
-        // إعادة تعيين المتغيرات
-        bacCurrentQuestion = 0;
-        bacUserAnswers = {};
-
-        // عرض السؤال الأول
-        showBacQuestion(bacCurrentQuestion);
-      }
-
-      // عرض سؤال اختبار الإعدادي
-      function showMiddleQuestion(index) {
-        if (index >= middleOrientationQuestions.length) {
-          return;
+      document.getElementById("logoutBtn").addEventListener("click", function () {
+        if (confirm("هل تريد تسجيل الخروج؟")) {
+          localStorage.removeItem("currentUser");
+          window.location.href = "index.html";
         }
-
-        const question = middleOrientationQuestions[index];
-        const questionContainer = document.getElementById("middleQuestionContainer");
-        const optionsContainer = document.getElementById("middleOptionsContainer");
-        const progressText = document.getElementById("middleProgressText");
-        const progressFill = document.getElementById("middleTestProgress");
-        const prevBtn = document.getElementById("middlePrevBtn");
-        const nextBtn = document.getElementById("middleNextBtn");
-        const resultBtn = document.getElementById("middleResultBtn");
-
-        // تحديث شريط التقدم
-        const progressPercent = ((index + 1) / middleOrientationQuestions.length) * 100;
-        progressFill.style.width = `${progressPercent}%`;
-        progressText.textContent = `السؤال ${index + 1}/${middleOrientationQuestions.length}`;
-
-        // عرض السؤال
-        questionContainer.innerHTML = `
-          <h3>${question.question}</h3>
-        `;
-
-        // عرض الخيارات
-        optionsContainer.innerHTML = "";
-        question.options.forEach((option, optionIndex) => {
-          const isSelected = middleUserAnswers[question.id] === option.id;
-          const optionDiv = document.createElement("div");
-          optionDiv.className = `test-option ${isSelected ? "selected" : ""}`;
-          optionDiv.innerHTML = `
-            <div class="option-number">${option.id}</div>
-            <div class="option-text">${option.text}</div>
-          `;
-          optionDiv.onclick = () => selectMiddleOption(question.id, option.id);
-          optionsContainer.appendChild(optionDiv);
-        });
-
-        // تحديث أزرار التنقل
-        prevBtn.disabled = index === 0;
-
-        if (index === middleOrientationQuestions.length - 1) {
-          nextBtn.style.display = "none";
-          resultBtn.style.display = "flex";
-        } else {
-          nextBtn.style.display = "flex";
-          resultBtn.style.display = "none";
-        }
-      }
-
-      // اختيار خيار في اختبار الإعدادي
-      function selectMiddleOption(questionId, optionId) {
-        middleUserAnswers[questionId] = optionId;
-        showMiddleQuestion(middleCurrentQuestion);
-      }
-
-      // السؤال التالي في اختبار الإعدادي
-      function middleNextQuestion() {
-        if (middleCurrentQuestion < middleOrientationQuestions.length - 1) {
-          middleCurrentQuestion++;
-          showMiddleQuestion(middleCurrentQuestion);
-        }
-      }
-
-      // السؤال السابق في اختبار الإعدادي
-      function middlePrevQuestion() {
-        if (middleCurrentQuestion > 0) {
-          middleCurrentQuestion--;
-          showMiddleQuestion(middleCurrentQuestion);
-        }
-      }
-
-      // عرض سؤال اختبار الباكالوريا
-      function showBacQuestion(index) {
-        if (index >= bacOrientationQuestions.length) {
-          return;
-        }
-
-        const question = bacOrientationQuestions[index];
-        const questionContainer = document.getElementById("bacQuestionContainer");
-        const optionsContainer = document.getElementById("bacOptionsContainer");
-        const progressText = document.getElementById("bacProgressText");
-        const progressFill = document.getElementById("bacTestProgress");
-        const prevBtn = document.getElementById("bacPrevBtn");
-        const nextBtn = document.getElementById("bacNextBtn");
-        const resultBtn = document.getElementById("bacResultBtn");
-
-        // تحديث شريط التقدم
-        const progressPercent = ((index + 1) / bacOrientationQuestions.length) * 100;
-        progressFill.style.width = `${progressPercent}%`;
-        progressText.textContent = `السؤال ${index + 1}/${bacOrientationQuestions.length}`;
-
-        // عرض السؤال
-        questionContainer.innerHTML = `
-          <h3>${question.question}</h3>
-        `;
-
-        // عرض الخيارات
-        optionsContainer.innerHTML = "";
-        question.options.forEach((option, optionIndex) => {
-          const isSelected = bacUserAnswers[question.id] === option.id;
-          const optionDiv = document.createElement("div");
-          optionDiv.className = `test-option ${isSelected ? "selected" : ""}`;
-          optionDiv.innerHTML = `
-            <div class="option-number">${option.id}</div>
-            <div class="option-text">${option.text}</div>
-          `;
-          optionDiv.onclick = () => selectBacOption(question.id, option.id);
-          optionsContainer.appendChild(optionDiv);
-        });
-
-        // تحديث أزرار التنقل
-        prevBtn.disabled = index === 0;
-
-        if (index === bacOrientationQuestions.length - 1) {
-          nextBtn.style.display = "none";
-          resultBtn.style.display = "flex";
-        } else {
-          nextBtn.style.display = "flex";
-          resultBtn.style.display = "none";
-        }
-      }
-
-      // اختيار خيار في اختبار الباكالوريا
-      function selectBacOption(questionId, optionId) {
-        bacUserAnswers[questionId] = optionId;
-        showBacQuestion(bacCurrentQuestion);
-      }
-
-      // السؤال التالي في اختبار الباكالوريا
-      function bacNextQuestion() {
-        if (bacCurrentQuestion < bacOrientationQuestions.length - 1) {
-          bacCurrentQuestion++;
-          showBacQuestion(bacCurrentQuestion);
-        }
-      }
-
-      // السؤال السابق في اختبار الباكالوريا
-      function bacPrevQuestion() {
-        if (bacCurrentQuestion > 0) {
-          bacCurrentQuestion--;
-          showBacQuestion(bacCurrentQuestion);
-        }
-      }
-
-      // عرض نتيجة اختبار الإعدادي
-      function showMiddleResult() {
-        // حساب النقاط
-        const scores = {
-          scientific: 0,
-          literary: 0,
-          technical: 0,
-          original: 0
-        };
-
-        // جمع النقاط من الإجابات
-        middleOrientationQuestions.forEach(question => {
-          const answerId = middleUserAnswers[question.id];
-          if (answerId) {
-            const selectedOption = question.options.find(opt => opt.id === answerId);
-            if (selectedOption && selectedOption.score) {
-              for (const branch in selectedOption.score) {
-                scores[branch] += selectedOption.score[branch];
-              }
-            }
-          }
-        });
-
-        // تحديد الفرع المناسب
-        let recommendedBranch = "";
-        let highestScore = 0;
-
-        for (const branch in scores) {
-          if (scores[branch] > highestScore) {
-            highestScore = scores[branch];
-            recommendedBranch = branch;
-          }
-        }
-
-        // حساب نسبة التوافق
-        const totalPossibleScore = middleOrientationQuestions.length * 3;
-        const matchPercentage = Math.round((highestScore / totalPossibleScore) * 100);
-
-        // عرض النتيجة
-        document.getElementById("middleTest").style.display = "none";
-        document.getElementById("middleResult").style.display = "block";
-        document.getElementById("middleResult").classList.add("active");
-
-        const branchData = branchesData[recommendedBranch];
-        document.getElementById("middleBranchIcon").textContent = branchData.icon;
-        document.getElementById("middleBranchName").textContent = branchData.name;
-        document.getElementById("middleMatchPercentage").textContent = `${matchPercentage}%`;
-
-        // عرض نقاط القوة
-        const strengthsList = document.getElementById("middleStrengthsList");
-        strengthsList.innerHTML = "";
-        branchData.strengths.forEach(strength => {
-          const li = document.createElement("li");
-          li.innerHTML = `<i class="fas fa-check"></i> ${strength}`;
-          strengthsList.appendChild(li);
-        });
-
-        // عرض المسارات المهنية
-        const careerPaths = document.getElementById("middleCareerPaths");
-        careerPaths.innerHTML = "";
-        branchData.careers.forEach(career => {
-          const tag = document.createElement("span");
-          tag.className = "career-tag";
-          tag.textContent = career;
-          careerPaths.appendChild(tag);
-        });
-
-        // تحديث شريط التقدم في نتيجة الاختبار
-        const percentageCircle = document.querySelector("#middleResult .match-percentage");
-        percentageCircle.style.background = `conic-gradient(#10b981 0% ${matchPercentage}%, #ddd ${matchPercentage}% 100%)`;
-      }
-
-      // عرض نتيجة اختبار الباكالوريا
-      function showBacResult() {
-        // حساب النقاط
-        const scores = {
-          medical: 0,
-          engineering: 0,
-          business: 0,
-          education: 0,
-          arts: 0
-        };
-
-        // جمع النقاط من الإجابات
-        bacOrientationQuestions.forEach(question => {
-          const answerId = bacUserAnswers[question.id];
-          if (answerId) {
-            const selectedOption = question.options.find(opt => opt.id === answerId);
-            if (selectedOption && selectedOption.score) {
-              for (const major in selectedOption.score) {
-                scores[major] += selectedOption.score[major];
-              }
-            }
-          }
-        });
-
-        // تحديد التخصص المناسب
-        let recommendedMajor = "";
-        let highestScore = 0;
-
-        for (const major in scores) {
-          if (scores[major] > highestScore) {
-            highestScore = scores[major];
-            recommendedMajor = major;
-          }
-        }
-
-        // حساب نسبة التوافق
-        const totalPossibleScore = bacOrientationQuestions.length * 3;
-        const matchPercentage = Math.round((highestScore / totalPossibleScore) * 100);
-
-        // عرض النتيجة
-        document.getElementById("bacTest").style.display = "none";
-        document.getElementById("bacResult").style.display = "block";
-        document.getElementById("bacResult").classList.add("active");
-
-        const majorData = majorsData[recommendedMajor];
-        document.getElementById("bacBranchIcon").textContent = majorData.icon;
-        document.getElementById("bacBranchName").textContent = majorData.name;
-        document.getElementById("bacMatchPercentage").textContent = `${matchPercentage}%`;
-
-        // عرض نقاط القوة
-        const strengthsList = document.getElementById("bacStrengthsList");
-        strengthsList.innerHTML = "";
-        majorData.strengths.forEach(strength => {
-          const li = document.createElement("li");
-          li.innerHTML = `<i class="fas fa-check"></i> ${strength}`;
-          strengthsList.appendChild(li);
-        });
-
-        // عرض التوصيات
-        const recommendations = document.getElementById("bacRecommendations");
-        recommendations.innerHTML = "";
-        majorData.recommendations.forEach(rec => {
-          const li = document.createElement("li");
-          li.innerHTML = `<i class="fas fa-lightbulb"></i> ${rec}`;
-          recommendations.appendChild(li);
-        });
-
-        // عرض المسارات المهنية
-        const careerPaths = document.getElementById("bacCareerPaths");
-        careerPaths.innerHTML = "";
-        majorData.careers.forEach(career => {
-          const tag = document.createElement("span");
-          tag.className = "career-tag";
-          tag.textContent = career;
-          careerPaths.appendChild(tag);
-        });
-
-        // تحديث شريط التقدم في نتيجة الاختبار
-        const percentageCircle = document.querySelector("#bacResult .match-percentage");
-        percentageCircle.style.background = `conic-gradient(#10b981 0% ${matchPercentage}%, #ddd ${matchPercentage}% 100%)`;
-      }
-
-      // حفظ نتيجة التوجيه
-      function saveOrientationResult(type) {
-        const user = JSON.parse(localStorage.getItem("currentUser"));
-        
-        let resultData;
-        if (type === 'middle') {
-          const branchName = document.getElementById("middleBranchName").textContent;
-          const matchPercentage = document.getElementById("middleMatchPercentage").textContent;
-          
-          resultData = {
-            id: Date.now(),
-            userId: user.id,
-            date: new Date().toISOString(),
-            testType: 'middle',
-            recommendedBranch: branchName,
-            matchPercentage: matchPercentage,
-            answers: middleUserAnswers
-          };
-        } else {
-          const majorName = document.getElementById("bacBranchName").textContent;
-          const matchPercentage = document.getElementById("bacMatchPercentage").textContent;
-          
-          resultData = {
-            id: Date.now(),
-            userId: user.id,
-            date: new Date().toISOString(),
-            testType: 'bac',
-            recommendedMajor: majorName,
-            matchPercentage: matchPercentage,
-            answers: bacUserAnswers
-          };
-        }
-
-        // حفظ في localStorage
-        orientationResults.push(resultData);
-        localStorage.setItem("orientationResults", JSON.stringify(orientationResults));
-
-        alert("✅ تم حفظ نتيجة التوجيه بنجاح");
-        updateStatistics();
-      }
-
-      // طباعة نتيجة التوجيه
-      function printOrientationResult() {
-        window.print();
-      }
+      });
     </script>
     
     <!-- إضافة Font Awesome للرموز -->
